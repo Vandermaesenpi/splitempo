@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,9 +35,9 @@ public class Level : MonoBehaviour
     {
         id = i;
         gameObject.SetActive(true);
-        GM.I.gameplay.stability = maxStability;
-        GM.I.gameplay.maxStability = maxStability;
-        GM.I.gameplay.levelText.text = levelName;
+        GM.I.gp.stability = maxStability;
+        GM.I.gp.maxStability = maxStability;
+        GM.I.gp.levelText.text = levelName;
         atoms.Clear();
         atoms.AddRange(GetComponentsInChildren<Atom>());
     }
@@ -55,7 +56,7 @@ public class Level : MonoBehaviour
             lavaRotator.animTime = 4;
             bossRotator.animTime = 4;
         }else if (id == 2){
-            GM.I.gameplay.WinGame();
+            GM.I.gp.WinGame();
         }
     }
 

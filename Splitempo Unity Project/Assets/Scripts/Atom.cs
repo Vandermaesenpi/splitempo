@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -65,7 +65,7 @@ public class Atom : BeatListener
             sfxSource.GetComponent<Disposable>().Dispose();
             if(isCollectable){
                 Collect();
-                GM.I.gameplay.Split(this, null);
+                GM.I.gp.Split(this, null);
                 Destroy(gameObject);
                 float startAngle = 180f/(float)splitParts.Count;
                 for (int i = 0; i < splitParts.Count; i++)
@@ -88,10 +88,10 @@ public class Atom : BeatListener
                     newAtom.Spawn(dir);
                     children.Add(newAtom);
                 }
-                GM.I.gameplay.Split(this, children);
+                GM.I.gp.Split(this, children);
                 Destroy(gameObject);
             }
-        }else if (virus && GM.I.gameplay.currentLevel.player.playerBalls[0].interactable){
+        }else if (virus && GM.I.gp.currentLevel.player.playerBalls[0].interactable){
                 Split();
             float startAngle = Random.Range(0f, 180f);
                 List<Atom> children = new List<Atom>();
@@ -100,7 +100,7 @@ public class Atom : BeatListener
                 newAtom.transform.parent = transform.parent;
                 newAtom.Spawn(dir);
                 children.Add(newAtom);
-                GM.I.gameplay.Split(null, children);
+                GM.I.gp.Split(null, children);
         }
         base.OnBeat();
     }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -132,7 +132,7 @@ public class PlayerBall : BeatListener
     public void KickBall(Vector3 direction, float force){
         if(!waitingForBounce || waitingForHurt){
             currentDirection += direction * force * kickStrength;
-            GM.I.gameplay.shot = true;
+            GM.I.gp.shot = true;
         }
 
     }
@@ -142,13 +142,13 @@ public class PlayerBall : BeatListener
         if(waitingForBounce){
             GM.I.cam.CamShake(-transform.position);
             Bounce();
-            GM.I.gameplay.Bump();
+            GM.I.gp.Bump();
         }
         waitingForBounce = false;
         if(waitingForHurt){
             GM.I.cam.CamShake(-transform.position * 3f);
             Hurt();
-            GM.I.gameplay.Hurt();
+            GM.I.gp.Hurt();
         }
         waitingForHurt = false;
         base.OnBeat();

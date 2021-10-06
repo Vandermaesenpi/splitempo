@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,7 +49,7 @@ public class Boss : BeatListener
             Collect();
             sfxSource.transform.parent = transform.parent;
                 sfxSource.GetComponent<Disposable>().Dispose();
-            GM.I.gameplay.currentLevel.BossPhaseEnd(id);
+            GM.I.gp.currentLevel.BossPhaseEnd(id);
             if(nextBoss != null){
                 nextBoss.SetActive(true);
             }
@@ -75,7 +75,7 @@ public class Boss : BeatListener
         waitForDeath = true;
         rotSpeed = 600f;
         if(id == 2)
-            GM.I.gameplay.currentLevel.player.StopInput();
+            GM.I.gp.currentLevel.player.StopInput();
 
         GetComponent<Collider>().enabled = false;
     }

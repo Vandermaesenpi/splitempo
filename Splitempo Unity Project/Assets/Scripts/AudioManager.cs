@@ -16,7 +16,6 @@ public class AudioManager : MonoBehaviour
     public int semiphrase;
 
     public AudioSource sfxSource;
-    public AudioClip rise, crash, win;
     public AudioClip finalMusic;
 
     private void Start ()

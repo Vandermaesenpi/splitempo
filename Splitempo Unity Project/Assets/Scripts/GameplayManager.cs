@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameplayManager : BeatListener
+public class gpManager : BeatListener
 {
     public float stability = 100f;
     public float maxStability = 100f;
@@ -13,7 +13,8 @@ public class GameplayManager : BeatListener
     public bool shot = false;
     public bool startFromLast = false;
 
-    public List<GameObject> levelPrefabs;
+    public List<World> worlds;
+    public World currentWorld;
     List<Level> levels;
     public Level currentLevel;
     public Transform transitionObject;
@@ -103,7 +104,7 @@ public class GameplayManager : BeatListener
         gameObject.SetActive(true);
         shotsTaken = 0;
         dead = false;
-        currentLevel = Instantiate(levelPrefabs[id]).GetComponent<Level>();
+        currentLevel = Instantiate(currentWorld.levelPrefabs[id]).GetComponent<Level>();
         currentLevel.Initialize(id);
     }
 
@@ -199,7 +200,7 @@ public class GameplayManager : BeatListener
         GM.I.am.musicSource.volume = 1f;
         GM.I.am.musicSource.pitch = 1f;
 
-        GM.I.am.sfxSource.PlayOneShot(GM.I.am.crash);
+        GM.I.am.sfxSource.PlayOneShot(GM.I.gp.currentWorld.crash);
         GM.I.am.musicSource.Stop();
         GM.I.am.musicSource.Play();
 
@@ -227,7 +228,7 @@ public class GameplayManager : BeatListener
         
         // Grace period, to sync with the beat
         GM.I.cam.SetVolumeStatus(2);
-        GM.I.am.sfxSource.PlayOneShot(GM.I.am.win);
+        GM.I.am.sfxSource.PlayOneShot(GM.I.gp.currentWorld.winLevel);
 
         currentLevel.player.StopInput();
         while (GM.I.am.phrase != 0)
@@ -237,7 +238,7 @@ public class GameplayManager : BeatListener
         // Hide level
         transitionObject.position = new Vector3(xOffset, 0, 0);
         // Play ride sfx to climax at phrase = 32
-        GM.I.am.sfxSource.PlayOneShot(GM.I.am.rise);
+        GM.I.am.sfxSource.PlayOneShot(GM.I.gp.currentWorld.rise);
 
         while (GM.I.am.phrase != 4)
         {
@@ -256,7 +257,7 @@ public class GameplayManager : BeatListener
         logo.sprite = logoGood;
         int id = currentLevel.id;
         int highscore = currentLevel.devHighscore;
-        int score = GM.I.gameplay.shotsTaken;
+        int score = GM.I.gp.shotsTaken;
         Destroy(currentLevel.gameObject);
         
         SpawnLevel(id + 1);
@@ -298,7 +299,7 @@ public class GameplayManager : BeatListener
         }
         transitionObject.position = new Vector3(-xOffset, 0, 0);
 
-        GM.I.am.sfxSource.PlayOneShot(GM.I.am.crash);
+        GM.I.am.sfxSource.PlayOneShot(GM.I.gp.currentWorld.crash);
         if(currentLevel.music != null){
             GM.I.am.musicSource.Stop();
             GM.I.am.musicSource.clip = currentLevel.music;

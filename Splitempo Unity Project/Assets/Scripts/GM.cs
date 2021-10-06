@@ -17,7 +17,7 @@ public class GM : MonoBehaviour
 
     public AudioManager am;
     public CameraManager cam;
-    public GameplayManager gameplay;
+    public gpManager gp;
     public GameUIManager ui;
 
     public bool MusicMute = false;
@@ -60,12 +60,12 @@ public class GM : MonoBehaviour
         }
         GM.I.cam.statusVolumes[5].weight = 0f;;
         GM.I.am.musicSource.volume = 1f;
-        GM.I.am.sfxSource.PlayOneShot(GM.I.am.crash);
-        gameplay.SpawnLevel(id);
-        gameplay.currentLevel.SpawnPlayer();
-        if(gameplay.currentLevel.music != null){
+        GM.I.am.sfxSource.PlayOneShot(GM.I.gp.currentWorld.crash);
+        gp.SpawnLevel(id);
+        gp.currentLevel.SpawnPlayer();
+        if(gp.currentLevel.music != null){
             GM.I.am.musicSource.Stop();
-            GM.I.am.musicSource.clip = gameplay.currentLevel.music;
+            GM.I.am.musicSource.clip = gp.currentLevel.music;
             GM.I.am.musicSource.Play();
         }
         
