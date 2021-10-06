@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: "World n\xB01"
   m_EditorClassIdentifier: 
   levelPrefabs: []
-  rise: {fileID: 0}
-  crash: {fileID: 0}
-  winLevel: {fileID: 0}
-  winWorld: {fileID: 0}
-  bpm: 0
+  rise: {fileID: 8300000, guid: 0825d6d7a8286324c8c34fe59102c738, type: 3}
+  crash: {fileID: 8300000, guid: d5791ac688cd09a4980a2b55334597b7, type: 3}
+  winLevel: {fileID: 8300000, guid: cd9c893de93d9ec4e9742d6adac94575, type: 3}
+  winWorld: {fileID: 8300000, guid: f41628c92540f4445a98da7a213de7a4, type: 3}
+  bpm: 130

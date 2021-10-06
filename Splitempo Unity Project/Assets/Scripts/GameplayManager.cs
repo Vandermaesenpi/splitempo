@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class gpManager : BeatListener
+public class GameplayManager : BeatListener
 {
     public float stability = 100f;
     public float maxStability = 100f;

@@ -17,7 +17,7 @@ public class GM : MonoBehaviour
 
     public AudioManager am;
     public CameraManager cam;
-    public gpManager gp;
+    public GameplayManager gp;
     public GameUIManager ui;
 
     public bool MusicMute = false;
