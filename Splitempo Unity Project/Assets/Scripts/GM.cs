@@ -41,6 +41,10 @@ public class GM : MonoBehaviour
         StartCoroutine(StartGameRoutine(id));
     }
 
+    public void Quit(){
+        Application.Quit();
+    }
+
     IEnumerator StartGameRoutine(int id)
     {
         if(GM.I.cam.volumeStatusRout != null){

@@ -410,7 +410,7 @@ PrefabInstance:
     - target: {fileID: 1850781209153290809, guid: 4a44ca26b38b8634dad1890d394c0e58,
         type: 3}
       propertyPath: levelName
-      value: "CORE N\xB06"
+      value: "CORE N\xB012"
       objectReference: {fileID: 0}
     - target: {fileID: 1850781209153290809, guid: 4a44ca26b38b8634dad1890d394c0e58,
         type: 3}

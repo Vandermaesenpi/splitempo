@@ -72,7 +72,7 @@ public class PlayerBall : BeatListener
                 pole.SetPosition(0,  mousePos - Vector3.forward * mousePos.z - Vector3.forward* 9f);
                 pole.SetPosition(1, mousePointer.position - Vector3.forward * mousePos.z- Vector3.forward * 9f);
                 directionLine.SetPosition(0,  Vector3.zero);
-                directionLine.SetPosition(1, -(mousePointer.position - mousePos).normalized * Mathf.Min((mousePointer.position - mousePos).magnitude/2f, 2f));
+                directionLine.SetPosition(1, -(mousePointer.position - mousePos).normalized * Mathf.Min((mousePointer.position - mousePos).magnitude, 2f));
             }
         }else if (Input.GetMouseButtonUp(0)){
             KickBall(-(mousePointer.position - mousePos), (mousePointer.position - mousePos).magnitude);

@@ -478,7 +478,7 @@ MonoBehaviour:
   raycastMask:
     serializedVersion: 2
     m_Bits: 512
-  kickStrength: 1
+  kickStrength: 10
   deceleration: 3
   maxVelocity: 50
   radius: 0.00001
