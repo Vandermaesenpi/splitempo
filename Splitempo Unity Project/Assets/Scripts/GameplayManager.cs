@@ -86,7 +86,7 @@ public class gpManager : BeatListener
         currentLevel.gameObject.SetActive(false);
         endgameMenu.SetActive(true);
         GM.I.am.musicSource.Stop();
-        GM.I.am.musicSource.clip = GM.I.am.finalMusic;
+        GM.I.am.musicSource.clip = GM.I.gp.currentWorld.winWorld;
         GM.I.am.musicSource.Play();
         GM.I.cam.statusVolumes[5].weight = 0f;
         gameObject.SetActive(false);
