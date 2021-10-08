@@ -29,15 +29,15 @@ public class Atom : BeatListener
 
     public void Split(Vector3 d, PlayerBall ball){
         if(colored && ball.blue != blue){return;}
-        PreSplit(splitPitch);
+        PreSplitSFX(splitPitch);
         direction = d.normalized;
         waitForBeat = true;
         GetComponent<Collider>().enabled = false;
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         if(spawnDirection != Vector3.zero){
-            transform.position += spawnDirection * Time.deltaTime;
+            transform.position += spawnDirection * Time.fixedDeltaTime;
             spawnDirection *= 0.95f;
             if(spawnDirection.magnitude < 0.01f){
                 spawnDirection = Vector3.zero;
@@ -46,10 +46,8 @@ public class Atom : BeatListener
         if(waitForBeat){
             transform.localScale *= 0.99f;
             rotSpeed *= 1.05f;
-            transform.Rotate(rot * rotSpeed * Time.deltaTime);
-        }else{
-            transform.Rotate(rot * rotSpeed * Time.deltaTime);
         }
+        transform.Rotate(rot * rotSpeed * Time.fixedDeltaTime);
     }
 
     private void OnCollisionEnter(Collision other) {
@@ -63,63 +61,83 @@ public class Atom : BeatListener
         if(waitForBeat){
             sfxSource.transform.parent = transform.parent;
             sfxSource.GetComponent<Disposable>().Dispose();
-            if(isCollectable){
-                Collect();
-                GM.I.gp.Split(this, null);
-                Destroy(gameObject);
-                float startAngle = 180f/(float)splitParts.Count;
-                for (int i = 0; i < splitParts.Count; i++)
-                {
-                    Vector3 dir = Quaternion.Euler(0,0,startAngle + (360f/(float)splitParts.Count)*(float)i) * direction; 
-                    Disposable newAtom = Instantiate(splitParts[i], transform.position, Random.rotation).GetComponent<Disposable>();
-                    newAtom.Dispose(dir);
-                }
-            }else{
-                Split();
-                // Spawn offsprings
-                float startAngle = 180f/(float)splitParts.Count;
-                List<Atom> children = new List<Atom>();
-                for (int i = 0; i < splitParts.Count; i++)
-                {
-                    
-                    Vector3 dir = Quaternion.Euler(0,0,startAngle + (360f/(float)splitParts.Count)*(float)i) * direction; 
-                    Atom newAtom = Instantiate(splitParts[i], transform.position, Random.rotation).GetComponent<Atom>();
-                    newAtom.transform.parent = transform.parent;
-                    newAtom.Spawn(dir);
-                    children.Add(newAtom);
-                }
-                GM.I.gp.Split(this, children);
-                Destroy(gameObject);
+            if(isCollectable)
+            {
+                SplitCollectable();
             }
-        }else if (virus && GM.I.gp.currentLevel.player.playerBalls[0].interactable){
-                Split();
-            float startAngle = Random.Range(0f, 180f);
-                List<Atom> children = new List<Atom>();
-                Vector3 dir = Quaternion.Euler(0,0,startAngle) * Vector3.right; 
-                Atom newAtom = Instantiate(virusOffspring, transform.position, Random.rotation).GetComponent<Atom>();
-                newAtom.transform.parent = transform.parent;
-                newAtom.Spawn(dir);
-                children.Add(newAtom);
-                GM.I.gp.Split(null, children);
+            else
+            {
+                SplitNormal();
+            }
+        }
+        else if (virus && GM.I.gp.currentLevel.player.playerBalls[0].interactable)
+        {
+            VirusSpawn();
         }
         base.OnBeat();
     }
 
+    private void VirusSpawn()
+    {
+        SplitSFX();
+        float startAngle = Random.Range(0f, 180f);
+        List<Atom> children = new List<Atom>();
+        Vector3 dir = Quaternion.Euler(0, 0, startAngle) * Vector3.right;
+        Atom newAtom = Instantiate(virusOffspring, transform.position, Random.rotation).GetComponent<Atom>();
+        newAtom.transform.parent = transform.parent;
+        newAtom.Spawn(dir);
+        children.Add(newAtom);
+        GM.I.gp.Split(null, children);
+    }
+
+    private void SplitNormal()
+    {
+        SplitSFX();
+        // Spawn offsprings
+        float startAngle = 180f / (float)splitParts.Count;
+        List<Atom> children = new List<Atom>();
+        for (int i = 0; i < splitParts.Count; i++)
+        {
+
+            Vector3 dir = Quaternion.Euler(0, 0, startAngle + (360f / (float)splitParts.Count) * (float)i) * direction;
+            Atom newAtom = Instantiate(splitParts[i], transform.position, Random.rotation).GetComponent<Atom>();
+            newAtom.transform.parent = transform.parent;
+            newAtom.Spawn(dir);
+            children.Add(newAtom);
+        }
+        GM.I.gp.Split(this, children);
+        Destroy(gameObject);
+    }
+
+    private void SplitCollectable()
+    {
+        CollectSFX();
+        GM.I.gp.Split(this, null);
+        Destroy(gameObject);
+        float startAngle = 180f / (float)splitParts.Count;
+        for (int i = 0; i < splitParts.Count; i++)
+        {
+            Vector3 dir = Quaternion.Euler(0, 0, startAngle + (360f / (float)splitParts.Count) * (float)i) * direction;
+            Disposable newAtom = Instantiate(splitParts[i], transform.position, Random.rotation).GetComponent<Disposable>();
+            newAtom.Dispose(dir);
+        }
+    }
+
     public AudioSource sfxSource;
     public List<AudioClip> sfx;
-    public void PreSplit(float pitch){
+    public void PreSplitSFX(float pitch){
         sfxSource.Stop();
         sfxSource.pitch = 0.5f;
         sfxSource.clip = sfx[0];
         sfxSource.Play();
     }
-    public void Split(){
+    public void SplitSFX(){
         sfxSource.Stop();
         sfxSource.pitch = 1f;
         sfxSource.clip = sfx[1];
         sfxSource.Play();
     }
-    public void Collect(){
+    public void CollectSFX(){
         sfxSource.Stop();
         sfxSource.pitch = 1f;
         sfxSource.clip = sfx[2];
