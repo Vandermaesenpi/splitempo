@@ -8,6 +8,7 @@ public class World : ScriptableObject
     public string displayName;
     public Sprite icon;
     public Color color;
+    public int minimumTrophies;
     public List<GameObject> levelPrefabs;
     public AudioClip rise, crash, winLevel, winWorld;
     public float bpm;

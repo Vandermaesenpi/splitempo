@@ -12,10 +12,10 @@ public class StartMenu : MonoBehaviour
 
     [Header("Start Menu")]
     public Text worldName;
+    public Text worldTrophyText;
     public Image worldIcon;
     public GameObject playButton;
     public GameObject levelSelectButton;
-
     public GameObject previousLevelButton, nextLevelButton;
 
     [Header("World selection anim")]
