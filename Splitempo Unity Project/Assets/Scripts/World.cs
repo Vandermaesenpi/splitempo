@@ -9,6 +9,20 @@ public class World : ScriptableObject
     public Sprite icon;
     public List<GameObject> levelPrefabs;
     public AudioClip rise, crash, winLevel, winWorld;
-
     public float bpm;
+
+    public int TrophiesInWorld{
+        get{
+            int i = 0;
+            foreach (string trophyName in GM.I.trophyLevels)
+            {
+                foreach (GameObject level in levelPrefabs)
+                {
+                    if(level.name == trophyName){i++;}
+                }
+            }
+
+            return i;
+        }
+    }
 }

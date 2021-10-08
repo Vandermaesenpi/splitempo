@@ -24,6 +24,9 @@ public class GM : MonoBehaviour
     public bool SFXMute = false;
     public bool VFXMute = false;
 
+    public List<string> trophyLevels;
+    public int trophies {get{return trophyLevels.Count;}}
+
     public void ToggleMusic(){
         MusicMute = !MusicMute;
     }

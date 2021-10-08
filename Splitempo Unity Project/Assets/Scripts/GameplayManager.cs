@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class GameplayManager : BeatListener
 {
-    public float stability = 100f;
-    public float maxStability = 100f;
+    public float stability;
+    public float maxStability;
 
-    public int shotsTaken = 0;
+    public int shotsTaken;
     public bool shot = false;
     public bool startFromLast = false;
 
@@ -26,11 +26,7 @@ public class GameplayManager : BeatListener
     public GameObject endgameMenu;
     
     public bool dead = true;
-    private void Start() {
-        
-    }
 
-    
 
     public void Bump(){
 
@@ -57,41 +53,6 @@ public class GameplayManager : BeatListener
 
     }
 
-    public void WinGame()
-    {
-        Debug.Log("WinGame");
-        StartCoroutine(WinGameRoutine());
-        
-    }
-
-    public IEnumerator WinGameRoutine (){
-        GM.I.am.musicSource.Stop();
-        currentLevel.player.StopInput();
-        if(GM.I.cam.volumeStatusRout != null){
-            StopCoroutine(GM.I.cam.volumeStatusRout);
-        }
-        while (GM.I.am.phrase != 0)
-        {
-            yield return null;
-            GM.I.cam.statusVolumes[5].weight += Time.deltaTime * 0.5f;
-
-        }
-
-        while (GM.I.am.phrase != 16)
-        {
-            //currentLevel.transform.localScale *= 0.999f;
-            GM.I.cam.statusVolumes[5].weight += Time.deltaTime * 1f;
-            yield return null;
-        }
-        currentLevel.gameObject.SetActive(false);
-        endgameMenu.SetActive(true);
-        GM.I.am.musicSource.Stop();
-        GM.I.am.musicSource.clip = GM.I.gp.currentWorld.winWorld;
-        GM.I.am.musicSource.Play();
-        GM.I.cam.statusVolumes[5].weight = 0f;
-        gameObject.SetActive(false);
-        
-    }
 
     private void Update() {
         if(shot){
@@ -307,6 +268,41 @@ public class GameplayManager : BeatListener
         }
 
         currentLevel.SpawnPlayer();
+    }
+    public void WinGame()
+    {
+        Debug.Log("WinGame");
+        StartCoroutine(WinGameRoutine());
+        
+    }
+
+    public IEnumerator WinGameRoutine (){
+        GM.I.am.musicSource.Stop();
+        currentLevel.player.StopInput();
+        if(GM.I.cam.volumeStatusRout != null){
+            StopCoroutine(GM.I.cam.volumeStatusRout);
+        }
+        while (GM.I.am.phrase != 0)
+        {
+            yield return null;
+            GM.I.cam.statusVolumes[5].weight += Time.deltaTime * 0.5f;
+
+        }
+
+        while (GM.I.am.phrase != 16)
+        {
+            //currentLevel.transform.localScale *= 0.999f;
+            GM.I.cam.statusVolumes[5].weight += Time.deltaTime * 1f;
+            yield return null;
+        }
+        currentLevel.gameObject.SetActive(false);
+        endgameMenu.SetActive(true);
+        GM.I.am.musicSource.Stop();
+        GM.I.am.musicSource.clip = GM.I.gp.currentWorld.winWorld;
+        GM.I.am.musicSource.Play();
+        GM.I.cam.statusVolumes[5].weight = 0f;
+        gameObject.SetActive(false);
+        
     }
 
 }
