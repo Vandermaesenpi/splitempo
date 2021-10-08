@@ -1,18 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    [Header("Canvases")]
+    public GameObject startMenu;
+    public GameObject levelSelectMenu;
+
+    [Header("Start Menu")]
+    public Text worldName;
+    public Image worldIcon;
+    public GameObject playButton;
+    public GameObject levelSelectButton;
+
+    [Header("Level Select Menu")]
+    public Text worldNamLevelSelect;
+
+
+
+    public void SelectNextWorld(){
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void SelectPreviousWorld(){
+
     }
 }
