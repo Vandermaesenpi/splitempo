@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e150a3b69aebbe64e940871e9456d629, type: 3}
-  m_Name: "World n\xB01"
+  m_Name: "World n\xB03"
   m_EditorClassIdentifier: 
-  displayName: A
-  icon: {fileID: 21300000, guid: fc3c2fc29323e4946aa070811610a63a, type: 3}
-  color: {r: 1, g: 0, b: 0, a: 1}
+  displayName: C
+  icon: {fileID: 21300000, guid: 2e8155ed5e14e6b488865527f905c71b, type: 3}
+  color: {r: 1, g: 1, b: 0, a: 1}
   levelPrefabs:
   - {fileID: 8309392350099596068, guid: d9b855dca22eba34b8eb6792e7cc67f6, type: 3}
   - {fileID: 1956304549384096089, guid: 4c7551690a4979240ae7b3f37073615b, type: 3}

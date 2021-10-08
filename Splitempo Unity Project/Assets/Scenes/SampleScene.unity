@@ -198,6 +198,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77377739}
   m_CullTransparentMesh: 0
+--- !u!1 &85690255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5513058517829945322, guid: 2569fcc49f0fdfd4f8345cc89e0f65ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 5513058518386348023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &85964387
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,20 +324,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f072a0fcb1a6d7d4695a46d1107bff25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
-  levelSelectMenu: {fileID: 0}
-  worldName: {fileID: 0}
-  worldIcon: {fileID: 0}
-  playButton: {fileID: 0}
-  levelSelectButton: {fileID: 0}
-  xOffset: 0
-  animSpeed: 0
+  startMenu: {fileID: 85964387}
+  levelSelectMenu: {fileID: 85964387}
+  worldName: {fileID: 1439493213}
+  worldIcon: {fileID: 1443653041}
+  playButton: {fileID: 85690255}
+  levelSelectButton: {fileID: 338747409}
+  previousLevelButton: {fileID: 2386359098590022610}
+  nextLevelButton: {fileID: 1627015265}
   animationCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  xOffset: 1
+  animSpeed: 5
   worldNamLevelSelect: {fileID: 0}
 --- !u!1 &92035947
 GameObject:
@@ -1072,6 +1098,12 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: -1
+--- !u!1 &338747409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5513058517829945322, guid: 2569fcc49f0fdfd4f8345cc89e0f65ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 422348016}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &341323865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,6 +1282,9 @@ MonoBehaviour:
   startFromLast: 1
   worlds:
   - {fileID: 11400000, guid: 5c69b2ec1ff25204c83f27dc78e64c6b, type: 2}
+  - {fileID: 11400000, guid: 83315400da4a2e4428ef43f8096d0b40, type: 2}
+  - {fileID: 11400000, guid: c2e988d5807ea454aa95ab69960807aa, type: 2}
+  - {fileID: 11400000, guid: 26ac28271d7f46c469bbb907437586ac, type: 2}
   currentWorld: {fileID: 11400000, guid: 5c69b2ec1ff25204c83f27dc78e64c6b, type: 2}
   currentLevel: {fileID: 0}
   transitionObject: {fileID: 371190488673213572}
@@ -4990,24 +5025,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1998084377}
-        m_MethodName: StartGame
+      - m_Target: {fileID: 85964392}
+        m_MethodName: SelectWorld
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 85964387}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6543,24 +6567,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1998084377}
-        m_MethodName: StartGame
+      - m_Target: {fileID: 85964392}
+        m_MethodName: SelectWorld
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 85964387}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6945,7 +6958,7 @@ PrefabInstance:
     - target: {fileID: 5513058517829945322, guid: 2569fcc49f0fdfd4f8345cc89e0f65ff,
         type: 3}
       propertyPath: m_Name
-      value: Start button
+      value: Play button
       objectReference: {fileID: 0}
     - target: {fileID: 5513058517829945322, guid: 2569fcc49f0fdfd4f8345cc89e0f65ff,
         type: 3}
