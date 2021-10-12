@@ -356,7 +356,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   xOffset: 1
-  animSpeed: 5
+  animSpeed: 10
   worldNamLevelSelect: {fileID: 0}
 --- !u!1 &92035947
 GameObject:
@@ -4663,7 +4663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refBeat: {fileID: 0}
-  beats: 0100010001000100
+  beats: 0000010000000100
   scaleModifier: 1.1
   bopSpeed: 3
 --- !u!114 &1443653041

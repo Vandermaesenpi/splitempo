@@ -80,14 +80,21 @@ public class StartMenu : MonoBehaviour
         GM.I.gp.currentWorld = GM.I.gp.worlds[i];
         bool locked = GM.I.trophies < GM.I.gp.currentWorld.minimumTrophies;
         
-        worldIcon.color = GM.I.gp.currentWorld.color;
-        worldName.color = GM.I.gp.currentWorld.color;
-        worldIcon.sprite = GM.I.gp.currentWorld.icon;
-        worldName.text = GM.I.gp.currentWorld.displayName;
+        if(locked){
+            worldIcon.color = GM.I.gp.currentWorld.color;
+            worldIcon.sprite = GM.I.gp.currentWorld.icon;
+            worldName.text = "???????????";
+            worldName.color = Color.grey;
+        }else{
+            worldIcon.color = GM.I.gp.currentWorld.color;
+            worldIcon.sprite = GM.I.gp.currentWorld.icon;
+            worldName.text = GM.I.gp.currentWorld.displayName;
+            worldName.color = GM.I.gp.currentWorld.color;
+        }
         
         playButton.SetActive(!locked);
         levelSelectButton.SetActive(!locked);
-        worldTrophyText.transform.parent.parent.gameObject.SetActive(!locked);
+        worldTrophyText.transform.parent.gameObject.SetActive(!locked);
         worldUnlockText.transform.parent.parent.gameObject.SetActive(locked);
 
         worldTrophyText.text = GM.I.gp.currentWorld.TrophiesInWorld + "/60";
