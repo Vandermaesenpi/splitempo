@@ -15,6 +15,7 @@ MonoBehaviour:
   displayName: D
   icon: {fileID: 21300000, guid: 47f9b7eb0955a514cb82d146a3ca21a4, type: 3}
   color: {r: 1, g: 0, b: 0.79818773, a: 1}
+  minimumTrophies: 80
   levelPrefabs:
   - {fileID: 8309392350099596068, guid: d9b855dca22eba34b8eb6792e7cc67f6, type: 3}
   - {fileID: 1956304549384096089, guid: 4c7551690a4979240ae7b3f37073615b, type: 3}
