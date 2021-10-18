@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBall : BeatListener
+public class PlayerBall : MonoBehaviour
 {
     public LineRenderer directionLine;
     public TrailRenderer trail;

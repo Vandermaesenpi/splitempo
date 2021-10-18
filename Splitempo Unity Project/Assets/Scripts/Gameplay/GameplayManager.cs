@@ -8,16 +8,16 @@ using UnityEngine.UI;
 public class GameplayManager : MonoBehaviour
 {
     private StabilityManager _stabilityManager;
-    public UnityEvent<int,float> onStabilityChanged;
-    public UnityEvent<int> onShotsChanged;
+    public UnityEventIntFloat onStabilityChanged;
+    public UnityEventInt onShotsChanged;
 
     private GameUIManager _gameUIManager;
 
-    private WorldManager _worldManager;
-    public LevelManager CurrentLevel => _worldManager.currentLevel;
-    public World CurrentWorld => _worldManager.currentWorld;
+    public LevelManager CurrentLevel => GM.I.world.currentLevel;
+    public World CurrentWorld => GM.I.world.currentWorld;
+    private ComboManager comboManager;
 
-
+    public bool won;
     public int shotsTaken;
     public bool startFromLast = false;
 
@@ -40,6 +40,7 @@ public class GameplayManager : MonoBehaviour
         _stabilityManager.SetManager(this);
         _gameUIManager = GetComponent<GameUIManager>();
         _gameUIManager.SetManager(this);
+        comboManager = GetComponent<ComboManager>();
     }
 
     public void Bump(){
@@ -50,7 +51,7 @@ public class GameplayManager : MonoBehaviour
     public void Hurt(){
         if(dead){return;}
         _stabilityManager.DecreaseStability(10);
-        GM.I.cam.StartPostProcessingEffect(PostProcessEffectType.Hurt);
+        CameraManager.I.StartPostProcessingEffect(PostProcessEffectType.Hurt);
     }
 
 
@@ -59,28 +60,37 @@ public class GameplayManager : MonoBehaviour
         gameObject.SetActive(true);
         shotsTaken = 0;
         dead = false;
-        _worldManager.SpawnLevel(id);
+        won = false;
+        GM.I.world.SpawnLevel(id);
         _stabilityManager.Initialize(CurrentLevel.maxStability);
         levelText.text = CurrentLevel.levelName;
     }
 
+    Coroutine endLevelRoutine;
+
     public void LooseLevel()
     {
-        StartCoroutine(Restart());
-        
+        if(won){return;}
+
+        if(endLevelRoutine != null){
+            StopCoroutine(endLevelRoutine);
+        }
+        endLevelRoutine = StartCoroutine(RestartRoutine());
     }
 
-    public IEnumerator Restart()
+    public IEnumerator RestartRoutine()
     {
 
-        GM.I.cam.StartPostProcessingEffect(PostProcessEffectType.Loose);
+        CameraManager.I.StartPostProcessingEffect(PostProcessEffectType.Loose);
         CurrentLevel.StopLevel();
-        AudioManager.I.LerpMusicPitch(0f, 8);
+        AudioManager.I.LerpMusicPitch(0f, 16);
         yield return StartCoroutine(BeatManager.WaitForBeatDuration(2));
         yield return StartCoroutine(_transitionScreen.StartTransition());
         RespawnLevel();
-        GM.I.cam.StartPostProcessingEffect(PostProcessEffectType.None);
+        CameraManager.I.StartPostProcessingEffect(PostProcessEffectType.None);
+        AudioManager.I.LerpMusicPitch(0.5f, 8);
         yield return StartCoroutine(_transitionScreen.ShowRebootUI());
+        AudioManager.I.LerpMusicVolume(0f,4);
         yield return StartCoroutine(_transitionScreen.EndTransition());
         AudioManager.I.StartMusic(GM.I.gp.CurrentWorld.sfxCrash);
         CurrentLevel.SpawnPlayer();
@@ -96,9 +106,10 @@ public class GameplayManager : MonoBehaviour
         SpawnLevel(CurrentLevel.id);
     }
 
-    public void Split(Atom parent, List<Atom> children) {
-        CurrentLevel.Split(parent, children);
-        if(CurrentLevel.atoms.Count == 0){
+    public void Split(Atom atom, int childrenCount) {
+        CurrentLevel.SplitAtom(atom, childrenCount);
+        comboManager.AddToCombo(atom);
+        if(CurrentLevel.NoMoreAtoms){
             WinLevel();
         }
     }
@@ -106,16 +117,17 @@ public class GameplayManager : MonoBehaviour
 
 
     public void WinLevel(){
-        StartCoroutine(Transition());
+        won = true;
+        if(endLevelRoutine != null){
+            StopCoroutine(endLevelRoutine);
+        }
+        endLevelRoutine = StartCoroutine(WinLevelRoutine());
     }
-    
 
-
-
-    public IEnumerator Transition (){
+    public IEnumerator WinLevelRoutine (){
         
         // Grace period, to sync with the beat
-        GM.I.cam.StartPostProcessingEffect(PostProcessEffectType.Win);
+        CameraManager.I.StartPostProcessingEffect(PostProcessEffectType.Win);
         AudioManager.I.PlayMusicSFX(CurrentWorld.sfxWinLevel);
         CurrentLevel.StopLevel();
         
@@ -123,8 +135,9 @@ public class GameplayManager : MonoBehaviour
         AudioManager.I.PlayMusicSFX(CurrentWorld.sfxRise);
         yield return StartCoroutine(_transitionScreen.StartTransition());
         SpawnNextLevel();
-        GM.I.cam.StartPostProcessingEffect(PostProcessEffectType.None);
+        CameraManager.I.StartPostProcessingEffect(PostProcessEffectType.None);
         yield return StartCoroutine(_transitionScreen.ShowNextLevelUI());
+        AudioManager.I.LerpMusicVolume(0f,4);
         yield return StartCoroutine(_transitionScreen.EndTransition());
         AudioManager.I.StartNewMusic(CurrentLevel.music, CurrentWorld.sfxCrash);
         CurrentLevel.SpawnPlayer();
@@ -141,14 +154,14 @@ public class GameplayManager : MonoBehaviour
         
         AudioManager.I.SetMusicVolume(0);
         CurrentLevel.player.StopInput();
-        GM.I.cam.StartPostProcessingEffect(PostProcessEffectType.BossHurt);
+        CameraManager.I.StartPostProcessingEffect(PostProcessEffectType.BossHurt);
 
-        yield return StartCoroutine(BeatManager.WaitUntilBeatInPhrase(16));
+        yield return StartCoroutine(BeatManager.WaitUntilBeatInPhrase(0));
 
         CurrentLevel.gameObject.SetActive(false);
         endgameMenu.SetActive(true);
         AudioManager.I.StartNewMusic(CurrentWorld.sfxWinWorld);
-        GM.I.cam.StartPostProcessingEffect(PostProcessEffectType.None);
+        CameraManager.I.StartPostProcessingEffect(PostProcessEffectType.None);
         gameObject.SetActive(false);
         
     }

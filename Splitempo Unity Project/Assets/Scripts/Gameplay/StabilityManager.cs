@@ -15,6 +15,7 @@ class StabilityManager : BeatListener
 
     public override void OnNotePlay()
     {
+        if(_gameplayManager.CurrentLevel == null){return;}
         if(!_gameplayManager.CurrentLevel.IsPlaying){return;}
         DecreaseStability(1);
     }

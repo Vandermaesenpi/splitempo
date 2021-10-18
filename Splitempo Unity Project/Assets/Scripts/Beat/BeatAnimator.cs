@@ -31,7 +31,7 @@ public class BeatAnimator : BeatListener
         SetupAnimation();
         while (t < animationTime)
         {
-            ExecuteAnimation(GetAmountAt(animationTime / t));
+            ExecuteAnimation(GetAmountAt(t/animationTime));
             t += Time.deltaTime;
             yield return 0;
         }

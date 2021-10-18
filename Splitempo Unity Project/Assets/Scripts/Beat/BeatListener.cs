@@ -14,11 +14,11 @@ public class BeatListener : MonoBehaviour
 
     private void GiveSequencerPatternTo(BeatListener beatListener)
     {
-        _sequencerPattern = beatListener._sequencerPattern;
+        beatListener._sequencerPattern = _sequencerPattern;
     }
 
     private void OnDisable() {
-        BeatManager.I.onBeat.RemoveListener(CheckBeat);
+        BeatManager.I?.onBeat.RemoveListener(CheckBeat);
     }
 
     private void CheckBeat(){

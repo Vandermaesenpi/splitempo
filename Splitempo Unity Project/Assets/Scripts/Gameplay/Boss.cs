@@ -55,7 +55,7 @@ public class Boss : BeatListener, IInteractable
         if(waitForBeat){
             waitForBeat = false;
             StartCoroutine(HurtRoutine());
-            GM.I.cam.StartPostProcessingEffect(PostProcessEffectType.BossHurt);
+            CameraManager.I.StartPostProcessingEffect(PostProcessEffectType.BossHurt);
             _atomAudio.PlaySFXSplit();
             health --;
             if(health <= 0){

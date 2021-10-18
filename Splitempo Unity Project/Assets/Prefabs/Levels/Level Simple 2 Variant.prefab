@@ -1,139 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &901319595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514854133937558410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8266b6cd3ba87d1409a1fa8312f4eaad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  refBeat: {fileID: 0}
-  beats: 0100000001000000
-  animTime: 4
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.46972525
-      value: 0.024081036
-      inSlope: 0.17586982
-      outSlope: 0.17586982
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.20731801
-    - serializedVersion: 3
-      time: 0.53810084
-      value: 0.10364458
-      inSlope: 1.2023335
-      outSlope: 1.2023335
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.94234616
-      value: 0.29104728
-      inSlope: 1.0276684
-      outSlope: 1.0276684
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.12677573
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  rotation: -90
---- !u!114 &1024674992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514854134869344607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8266b6cd3ba87d1409a1fa8312f4eaad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  refBeat: {fileID: 0}
-  beats: 0100000001000000
-  animTime: 4
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.46972525
-      value: 0.024081036
-      inSlope: 0.17586982
-      outSlope: 0.17586982
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.20731801
-    - serializedVersion: 3
-      time: 0.53810084
-      value: 0.10364458
-      inSlope: 1.2023335
-      outSlope: 1.2023335
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.94234616
-      value: 0.29104728
-      inSlope: 1.0276684
-      outSlope: 1.0276684
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.12677573
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  rotation: 90
 --- !u!114 &929755591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8266b6cd3ba87d1409a1fa8312f4eaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refBeat: {fileID: 0}
-  beats: 0001000100010001
-  animTime: 1
+  _sequencerPattern:
+    notes: 0000000000000000
+  _referenceBeat: {fileID: 0}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -173,7 +39,76 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  rotation: 15
+  amount: 0
+  _fixedAnimationTime: 0
+--- !u!114 &1024674992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514854134869344607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8266b6cd3ba87d1409a1fa8312f4eaad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sequencerPattern:
+    notes: 0000000000000000
+  _referenceBeat: {fileID: 0}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.46972525
+      value: 0.024081036
+      inSlope: 0.17586982
+      outSlope: 0.17586982
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.20731801
+    - serializedVersion: 3
+      time: 0.53810084
+      value: 0.10364458
+      inSlope: 1.2023335
+      outSlope: 1.2023335
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.94234616
+      value: 0.29104728
+      inSlope: 1.0276684
+      outSlope: 1.0276684
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12677573
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  amount: 0
+  _fixedAnimationTime: 0
 --- !u!114 &1173828808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,9 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8266b6cd3ba87d1409a1fa8312f4eaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refBeat: {fileID: 0}
-  beats: 0001000100010001
-  animTime: 1
+  _sequencerPattern:
+    notes: 0000000000000000
+  _referenceBeat: {fileID: 0}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -213,7 +148,76 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  rotation: 15
+  amount: 0
+  _fixedAnimationTime: 0
+--- !u!114 &901319595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514854133937558410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8266b6cd3ba87d1409a1fa8312f4eaad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sequencerPattern:
+    notes: 0000000000000000
+  _referenceBeat: {fileID: 0}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.46972525
+      value: 0.024081036
+      inSlope: 0.17586982
+      outSlope: 0.17586982
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.20731801
+    - serializedVersion: 3
+      time: 0.53810084
+      value: 0.10364458
+      inSlope: 1.2023335
+      outSlope: 1.2023335
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.94234616
+      value: 0.29104728
+      inSlope: 1.0276684
+      outSlope: 1.0276684
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12677573
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  amount: 0
+  _fixedAnimationTime: 0
 --- !u!1001 &4896708380597484440
 PrefabInstance:
   m_ObjectHideFlags: 0

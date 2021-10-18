@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Atom : BeatListener,IInteractable
+public class Atom : MonoBehaviour,IInteractable
 {
     public bool isCollectable;
     public List<GameObject> splitParts;
@@ -19,7 +19,6 @@ public class Atom : BeatListener,IInteractable
     Vector3 _spawnDirection = Vector3.zero;
 
     private void Awake() {
-        _spawner = GetComponent<Spawner>();
         _atomAudio = GetComponent<AtomAudio>();
     }
 
@@ -31,25 +30,26 @@ public class Atom : BeatListener,IInteractable
         _spawnDirection = d * 10f;
     }
 
-    public void Split(Vector3 d, PlayerBall ball){
+    public void PreSplit(Vector3 d, PlayerBall ball){
         if(colored && ball.blue != blue){return;}
         _atomAudio.PlaySFXPreSplit();
         _direction = d.normalized;
         waitForBeat = true;
+        GM.I.gp.Split(this, isCollectable ? 0 : splitParts.Count);
         GetComponent<Collider>().enabled = false;
     }
 
     private void FixedUpdate() {
-        if(_spawnDirection != Vector3.zero){
+        if(waitForBeat){
+            transform.localScale *= 0.99f;
+            rotSpeed *= 1.05f;
+        }
+        else if(_spawnDirection != Vector3.zero){
             transform.position += _spawnDirection * Time.fixedDeltaTime;
             _spawnDirection *= 0.95f;
             if(_spawnDirection.magnitude < 0.01f){
                 _spawnDirection = Vector3.zero;
             }
-        }
-        if(waitForBeat){
-            transform.localScale *= 0.99f;
-            rotSpeed *= 1.05f;
         }
         transform.Rotate(_randomRotation * rotSpeed * Time.fixedDeltaTime);
     }
@@ -60,25 +60,19 @@ public class Atom : BeatListener,IInteractable
         }
     }
 
-    public override void OnNotePlay()
-    {
-        if(waitForBeat){
-            if(isCollectable)
-            {
-                SplitCollectable();
-            }
-            else
-            {
-                SplitNormal();
-            }
+    public void Split(){
+        if(isCollectable)
+        {
+            SplitCollectable();
         }
-        _spawner?.Spawn();
-        base.OnNotePlay();
+        else
+        {
+            SplitNormal();
+        }
     }
 
     private void SplitNormal()
     {
-        _atomAudio.PlaySFXSplit();
         // Spawn offsprings
         float startAngle = 180f / (float)splitParts.Count;
         List<Atom> children = new List<Atom>();
@@ -91,14 +85,13 @@ public class Atom : BeatListener,IInteractable
             newAtom.Spawn(dir);
             children.Add(newAtom);
         }
-        GM.I.gp.Split(this, children);
+        GM.I.gp.CurrentLevel.AddNewAtoms(children);
+
         Destroy(gameObject);
     }
 
     private void SplitCollectable()
     {
-        _atomAudio.PlaySFXDestroy();
-        GM.I.gp.Split(this, null);
         Destroy(gameObject);
         float startAngle = 180f / (float)splitParts.Count;
         for (int i = 0; i < splitParts.Count; i++)
@@ -113,6 +106,7 @@ public class Atom : BeatListener,IInteractable
     public void Interact(BallMovement interactor, RaycastHit hit)
     {
         interactor.transform.position = hit.transform.position;
-        Split(interactor.CurrentDirection, interactor.MyPlayerBall);
+        rotSpeed *= 2;
+        PreSplit(interactor.CurrentDirection, interactor.MyPlayerBall);
     }
 }

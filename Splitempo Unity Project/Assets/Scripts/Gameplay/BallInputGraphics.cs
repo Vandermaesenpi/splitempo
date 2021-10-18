@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class BallInputGraphics
+public class BallInputGraphics : MonoBehaviour
 {
     [SerializeField] private LineRenderer _pole;
     private GameObject _poleGameObject;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Lava : IInteractable
+public class Lava : MonoBehaviour, IInteractable
 {
     public void Interact(BallMovement interactor, RaycastHit hit)
     {

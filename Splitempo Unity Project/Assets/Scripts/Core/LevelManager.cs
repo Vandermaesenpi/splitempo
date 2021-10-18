@@ -17,27 +17,35 @@ public class LevelManager : MonoBehaviour
     public Transform bossLava;
     public BeatRotator lavaRotator, bossRotator;
 
-
     [HideInInspector]
-    public List<Atom> atoms;
+    public List<Atom> _atoms;
     private bool _isPlaying;
     public bool IsPlaying => _isPlaying;
 
-    public void Split(Atom parent, List<Atom> children) {
+    private int waitingChildrenCount;
+    internal bool NoMoreAtoms => _atoms.Count == 0 && waitingChildrenCount == 0;
+
+    public void SplitAtom(Atom parent, int children) {
         if(parent != null){
-            atoms.Remove(parent);
+            _atoms.Remove(parent);
         }
-        if(children != null){
-            atoms.AddRange(children);
+        if(children > 0){
+            waitingChildrenCount += children;
         }
+    }
+
+    public void AddNewAtoms(List<Atom> atoms){
+        _atoms.AddRange(atoms);
+        waitingChildrenCount -= atoms.Count;
     }
 
     public void Initialize(int i)
     {
+        waitingChildrenCount = 0;
         id = i;
         gameObject.SetActive(true);
-        atoms.Clear();
-        atoms.AddRange(GetComponentsInChildren<Atom>());
+        _atoms.Clear();
+        _atoms.AddRange(GetComponentsInChildren<Atom>());
     }
 
     public void SpawnPlayer(){
@@ -69,6 +77,6 @@ public class LevelManager : MonoBehaviour
             t += Time.deltaTime;
             yield return 0;
         }
-            bossLava.localScale = Vector3.one;
+        bossLava.localScale = Vector3.one;
     }
 }

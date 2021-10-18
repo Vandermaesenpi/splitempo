@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8266b6cd3ba87d1409a1fa8312f4eaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refBeat: {fileID: 0}
-  beats: 0100010001000100
-  animTime: 1
+  _sequencerPattern:
+    notes: 0100000001000000
+  _referenceBeat: {fileID: 0}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -48,7 +48,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  rotation: 45
+  amount: 45
+  _fixedAnimationTime: 0
 --- !u!1001 &1902238387239928660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -264,6 +265,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1850781209153290809, guid: 4a44ca26b38b8634dad1890d394c0e58,
         type: 3}
+      propertyPath: maxStability
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850781209153290809, guid: 4a44ca26b38b8634dad1890d394c0e58,
+        type: 3}
       propertyPath: atoms.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -370,7 +376,7 @@ PrefabInstance:
     - target: {fileID: 7581528416446445510, guid: 4a44ca26b38b8634dad1890d394c0e58,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8254401526250806636, guid: 4a44ca26b38b8634dad1890d394c0e58,
         type: 3}

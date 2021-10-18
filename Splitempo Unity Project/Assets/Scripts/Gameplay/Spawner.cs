@@ -2,18 +2,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Spawner : MonoBehaviour
+public class Spawner : BeatListener
 {
     [SerializeField] private GameObject _offspring;
     [SerializeField] private AudioClip _sfxSpawn;
 
     private Transform _transform;
 
-    private void Awake() {
+    private void Start() {
         _transform = transform;
     }
 
-    public void Spawn()
+    public override void OnNotePlay()
     {
         if(!GM.I.gp.CurrentLevel.IsPlaying){return;}
 
@@ -25,6 +25,7 @@ public class Spawner : MonoBehaviour
         AudioManager.PlaySFX(_sfxSpawn, _transform.position);
         newAtom.Spawn(dir);
         children.Add(newAtom);
-        GM.I.gp.Split(null, children);
+        GM.I.gp.CurrentLevel.AddNewAtoms(children);
+        base.OnNotePlay();
     }
 }

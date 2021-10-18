@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Wall : IInteractable
+public class Wall : MonoBehaviour, IInteractable
 {
     public void Interact(BallMovement interactor, RaycastHit hit)
     {

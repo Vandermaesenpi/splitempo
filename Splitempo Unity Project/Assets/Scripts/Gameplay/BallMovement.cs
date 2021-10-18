@@ -62,7 +62,7 @@ public class BallMovement : BeatListener
 
     public void KickBall(Vector3 direction){
         if(!_waitingForBounce || _waitingForHurt){
-            _currentDirection += direction * _kickStrength;
+            _currentDirection -= direction * _kickStrength;
         }
     }
 
@@ -81,6 +81,7 @@ public class BallMovement : BeatListener
 
     internal void Reflect(Vector3 normal)
     {
+        CameraManager.I.CamShake(_currentDirection);
         _currentDirection = Vector3.Reflect(_currentDirection, normal);
         _waitingForBounce = true;
     }

@@ -254,7 +254,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.15588287, g: 0.2924528, b: 0.2924528, a: 1}
     m_PressedColor: {r: 0.3340157, g: 0.50392103, b: 0.509434, a: 1}
     m_SelectedColor: {r: 0.33333334, g: 0.5019608, b: 0.50980395, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -307,7 +307,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223bfd2d8818fe64d8a03501f1eeec44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refBeat: {fileID: 0}
-  beats: 0100000001000000
-  scaleModifier: 1.1
-  bopSpeed: 3
+  _sequencerPattern:
+    notes: 0000000000000000
+  _referenceBeat: {fileID: 0}
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  amount: 0
+  _fixedAnimationTime: 0

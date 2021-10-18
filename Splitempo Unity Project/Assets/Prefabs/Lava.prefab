@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1009089337280687552}
   - component: {fileID: 1009089337280687556}
   m_Layer: 9
-  m_Name: Obstacle (4)
+  m_Name: Lava
   m_TagString: Lava
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,10 +103,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1009089337280687555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4011f1a8d482dc5488f3c1651ac1d81b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f806318975afc642a84e85e061011e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beats: 0101010101010101
-  startColor: {r: 1, g: 0.054767624, b: 0, a: 1}
-  targetColor: {r: 1, g: 0.6347196, b: 0, a: 1}
-  bopSpeed: 10

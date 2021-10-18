@@ -133,6 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1850781209153290809, guid: 4a44ca26b38b8634dad1890d394c0e58,
         type: 3}
+      propertyPath: maxStability
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850781209153290809, guid: 4a44ca26b38b8634dad1890d394c0e58,
+        type: 3}
       propertyPath: atoms.Array.size
       value: 0
       objectReference: {fileID: 0}

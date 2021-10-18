@@ -1,20 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &486283195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2305169873947558595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c043ddc834d0b0d4ea845b40078d1bb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerBalls:
-  - {fileID: 8573685650363577302}
-  - {fileID: 2305169873838904361}
 --- !u!1 &3987213602723121766
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,14 +109,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7581528416446445510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48ee753f006aa3d408a0abf47971b0ad, type: 3}
+  m_Script: {fileID: 11500000, guid: c15947295d9e7bd4c88db162d2603853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStability: 64
-  id: 0
-  levelName: "CORE N\xB0"
-  player: {fileID: 486283195}
+  levelName: 
+  maxStability: 0
   music: {fileID: 0}
+  id: 0
+  devHighscore: 0
+  player: {fileID: 5898961536796079417}
+  bossLava: {fileID: 0}
+  lavaRotator: {fileID: 0}
+  bossRotator: {fileID: 0}
   atoms: []
 --- !u!1001 &233611471
 PrefabInstance:
@@ -472,40 +461,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1423d5b08c0a9c745b0711199a5e2d09, type: 3}
---- !u!1 &2305169873947558595 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2305169873022591347, guid: 1423d5b08c0a9c745b0711199a5e2d09,
-    type: 3}
-  m_PrefabInstance: {fileID: 1071784880}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2305169873947558594 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2305169873022591346, guid: 1423d5b08c0a9c745b0711199a5e2d09,
     type: 3}
   m_PrefabInstance: {fileID: 1071784880}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8573685650363577302 stripped
+--- !u!114 &5898961536796079417 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8573685649631793254, guid: 1423d5b08c0a9c745b0711199a5e2d09,
+  m_CorrespondingSourceObject: {fileID: 5898961537855264393, guid: 1423d5b08c0a9c745b0711199a5e2d09,
     type: 3}
   m_PrefabInstance: {fileID: 1071784880}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e970a282ffb9640970555f3ddadc97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2305169873838904361 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2305169873132304281, guid: 1423d5b08c0a9c745b0711199a5e2d09,
-    type: 3}
-  m_PrefabInstance: {fileID: 1071784880}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e970a282ffb9640970555f3ddadc97, type: 3}
+  m_Script: {fileID: 11500000, guid: c043ddc834d0b0d4ea845b40078d1bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1260154183

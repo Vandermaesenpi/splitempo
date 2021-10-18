@@ -103,11 +103,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6264873886895141852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4011f1a8d482dc5488f3c1651ac1d81b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a5f70c134d37c64ca70680b584c0812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refBeat: {fileID: 0}
-  beats: 0100010001000100
-  startColor: {r: 0.77684784, g: 0, b: 1, a: 1}
-  targetColor: {r: 0, g: 0.05548811, b: 1, a: 1}
-  bopSpeed: 3

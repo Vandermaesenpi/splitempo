@@ -16,24 +16,30 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: fc3c2fc29323e4946aa070811610a63a, type: 3}
   color: {r: 1, g: 0, b: 0, a: 1}
   minimumTrophies: 0
-  levelPrefabs:
-  - {fileID: 8309392350099596068, guid: d9b855dca22eba34b8eb6792e7cc67f6, type: 3}
-  - {fileID: 1956304549384096089, guid: 4c7551690a4979240ae7b3f37073615b, type: 3}
-  - {fileID: 3081136941568399359, guid: aa2f598cee1dd694fb707e2a6fc0b1fa, type: 3}
-  - {fileID: 1594865795427123825, guid: 22b8f2fe33521f24aa76549b47b38794, type: 3}
-  - {fileID: 4360374819527147788, guid: e05c6ba50e8b8fe438e07aeabdb06541, type: 3}
-  - {fileID: 3023928493871894954, guid: 28159590298fc1e449cb1e297b88b9d4, type: 3}
-  - {fileID: 8506465393252145408, guid: 150dce6c108d4f4469fe1391ef4cccbe, type: 3}
-  - {fileID: 3718681617971011541, guid: 0d5417ef03b0e664689d7fa2528e4a22, type: 3}
-  - {fileID: 8280706314280359538, guid: 7faa8c785b2edd14e9d52d5eb9f0c18e, type: 3}
-  - {fileID: 4682540249187713697, guid: 0849c38b8570dee4c963b6223c71af2b, type: 3}
-  - {fileID: 1842658520614525665, guid: c43dff14041df0a47a11b494340dca93, type: 3}
-  - {fileID: 5404160467032797408, guid: adeb2ac129e03cb40b7007345d0aecea, type: 3}
-  - {fileID: 7002949495175019537, guid: 982cf195afa0fe048ae0237ca533e0a9, type: 3}
-  - {fileID: 5815413578889276708, guid: 59f50ef407f39474c82bed0236eed683, type: 3}
-  - {fileID: 5354867529274824413, guid: 90d8e095f7c94334796127c52b87ada6, type: 3}
-  rise: {fileID: 8300000, guid: 0825d6d7a8286324c8c34fe59102c738, type: 3}
-  crash: {fileID: 8300000, guid: d5791ac688cd09a4980a2b55334597b7, type: 3}
-  winLevel: {fileID: 8300000, guid: cd9c893de93d9ec4e9742d6adac94575, type: 3}
-  winWorld: {fileID: 8300000, guid: f41628c92540f4445a98da7a213de7a4, type: 3}
+  levels:
+  - {fileID: 272837248181196507, guid: d9b855dca22eba34b8eb6792e7cc67f6, type: 3}
+  - {fileID: 7764070269871209638, guid: 4c7551690a4979240ae7b3f37073615b, type: 3}
+  - {fileID: 6511028448156819968, guid: aa2f598cee1dd694fb707e2a6fc0b1fa, type: 3}
+  - {fileID: 7402701334891722638, guid: 22b8f2fe33521f24aa76549b47b38794, type: 3}
+  - {fileID: 5483868750579266803, guid: e05c6ba50e8b8fe438e07aeabdb06541, type: 3}
+  - {fileID: 6444249370072687701, guid: 28159590298fc1e449cb1e297b88b9d4, type: 3}
+  - {fileID: 474212139292142847, guid: 150dce6c108d4f4469fe1391ef4cccbe, type: 3}
+  - {fileID: 4828665169975634474, guid: 0d5417ef03b0e664689d7fa2528e4a22, type: 3}
+  - {fileID: 176571518075986829, guid: 7faa8c785b2edd14e9d52d5eb9f0c18e, type: 3}
+  - {fileID: 3486364270068807518, guid: 0849c38b8570dee4c963b6223c71af2b, type: 3}
+  - {fileID: 7569359585246342942, guid: c43dff14041df0a47a11b494340dca93, type: 3}
+  - {fileID: 4208291792966108447, guid: adeb2ac129e03cb40b7007345d0aecea, type: 3}
+  - {fileID: 1276433147423443438, guid: 982cf195afa0fe048ae0237ca533e0a9, type: 3}
+  - {fileID: 2318733200554236123, guid: 59f50ef407f39474c82bed0236eed683, type: 3}
+  - {fileID: 272837248181196507, guid: d9b855dca22eba34b8eb6792e7cc67f6, type: 3}
+  - {fileID: 272837248181196507, guid: d9b855dca22eba34b8eb6792e7cc67f6, type: 3}
+  - {fileID: 272837248181196507, guid: d9b855dca22eba34b8eb6792e7cc67f6, type: 3}
+  - {fileID: 272837248181196507, guid: d9b855dca22eba34b8eb6792e7cc67f6, type: 3}
+  - {fileID: 272837248181196507, guid: d9b855dca22eba34b8eb6792e7cc67f6, type: 3}
+  - {fileID: 272837248181196507, guid: d9b855dca22eba34b8eb6792e7cc67f6, type: 3}
+  sfxRise: {fileID: 8300000, guid: 0825d6d7a8286324c8c34fe59102c738, type: 3}
+  sfxCrash: {fileID: 8300000, guid: d5791ac688cd09a4980a2b55334597b7, type: 3}
+  sfxWinLevel: {fileID: 8300000, guid: cd9c893de93d9ec4e9742d6adac94575, type: 3}
+  sfxWinWorld: {fileID: 0}
+  menuMusic: {fileID: 8300000, guid: e468f92f0316c2f4884f8368efbbdda9, type: 3}
   bpm: 130

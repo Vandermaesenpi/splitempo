@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,17 +10,20 @@ public class World : ScriptableObject
     public Sprite icon;
     public Color color;
     public int minimumTrophies;
-    public List<GameObject> levels;
-    public AudioClip sfxRise, sfxCrash, sfxWinLevel, sfxWinWorld;
+    public List<LevelManager> levels;
+
+
+    public AudioClip sfxRise, sfxCrash, sfxWinLevel, sfxWinWorld, menuMusic;
     public float bpm;
     public bool IsLocked => GM.I.trophies < minimumTrophies;
+
 
     public int TrophiesInWorld{
         get{
             int i = 0;
             foreach (string trophyName in GM.I.trophyLevels)
             {
-                foreach (GameObject level in levels)
+                foreach (LevelManager level in levels)
                 {
                     if(level.name == trophyName){i++;}
                 }

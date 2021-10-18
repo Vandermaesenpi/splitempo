@@ -134,7 +134,7 @@ TrailRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.01
+  m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
 --- !u!1 &2305169872882464169
@@ -350,7 +350,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 2
+  m_Time: 0.9
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -407,13 +407,13 @@ TrailRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 1
+    numCornerVertices: 0
     numCapVertices: 1
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.01
+  m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
 --- !u!1 &5852517223324474737
@@ -426,7 +426,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5852517223324474736}
   - component: {fileID: 5852517223324474739}
+  - component: {fileID: 6717019218879941843}
   - component: {fileID: 5852517223324474738}
+  - component: {fileID: 6536640549017590503}
   m_Layer: 8
   m_Name: Ball
   m_TagString: Untagged
@@ -466,38 +468,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e970a282ffb9640970555f3ddadc97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refBeat: {fileID: 0}
-  beats: 0100010001000100
-  mousePointer: {fileID: 0}
-  pole: {fileID: 0}
   directionLine: {fileID: 5820175118126678004}
   trail: {fileID: 136786386}
   blue: 0
-  bounds: {x: -100, y: 100, z: -100, w: 100}
-  currentDirection: {x: 0, y: 0, z: 0}
-  raycastMask:
+  _ballMovement: {fileID: 6717019218879941843}
+  sfxBounce:
+  - {fileID: 8300000, guid: 93519260c4ae7514b917bcc1442869e8, type: 3}
+  - {fileID: 8300000, guid: 5e83e77abd5884940bc67ccbb1d19454, type: 3}
+  - {fileID: 8300000, guid: a86ad1874fc05c143a6591a2a28466e1, type: 3}
+  - {fileID: 8300000, guid: 11ecde7631cf6c64990d74a1b3452f53, type: 3}
+  - {fileID: 8300000, guid: a8908210d53f66048b8bdfc4d0bda718, type: 3}
+  - {fileID: 8300000, guid: 2a3f7dfa3952fc7409c37633ac3af418, type: 3}
+  - {fileID: 8300000, guid: f4696ef7a3e750d40898c2143a21510d, type: 3}
+  - {fileID: 8300000, guid: 8f3383d73b1cc0442a19b3a579d0cff8, type: 3}
+  sfxHurt: {fileID: 0}
+--- !u!114 &6717019218879941843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5852517223324474737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efda402a3045ba946b4124ad94b5afc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sequencerPattern:
+    notes: 0101010101010101
+  _referenceBeat: {fileID: 0}
+  _bounds: {x: -7, y: 7, z: -7, w: 7}
+  _currentDirection: {x: 0, y: 0, z: 0}
+  _raycastMask:
     serializedVersion: 2
     m_Bits: 512
-  kickStrength: 10
-  deceleration: 3
-  maxVelocity: 50
-  radius: 0.00001
-  waitingForBounce: 0
-  waitingForHurt: 0
-  bounceSource: {fileID: 2305169872882464175}
-  bounce:
-  - {fileID: 8300000, guid: 66c7044cd3b89864f96b46946d1ae6cf, type: 3}
-  - {fileID: 8300000, guid: 425fff7d34a98564ea86543d4a96e227, type: 3}
-  - {fileID: 8300000, guid: 023e51faab1f163468931b48e6079069, type: 3}
-  - {fileID: 8300000, guid: c1182179bcbf271458d1f5c7f5b47213, type: 3}
-  - {fileID: 8300000, guid: 9e796b3dd32e8bd4287eeb0f7121d9a8, type: 3}
-  - {fileID: 8300000, guid: 816162067c5234b438f0d12086baec7d, type: 3}
-  - {fileID: 8300000, guid: 22964621cc9727441b5b0b26d00ceb41, type: 3}
-  - {fileID: 8300000, guid: 1c78bcc883a6757419fcd88aa150c9a9, type: 3}
-  - {fileID: 8300000, guid: db4cfb921e25e9e479415d187c0c9b83, type: 3}
-  hurt:
-  - {fileID: 8300000, guid: 1809a6511cf0d1841be3555ce3b87b97, type: 3}
-  interactable: 0
+  _kickStrength: 30
+  _deceleration: 2
+  _maxVelocity: 50
+  _radius: 0.1
+  _waitingForBounce: 0
+  _waitingForHurt: 0
 --- !u!54 &5852517223324474738
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -514,6 +524,47 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!114 &6536640549017590503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5852517223324474737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223bfd2d8818fe64d8a03501f1eeec44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sequencerPattern:
+    notes: 0000000000000000
+  _referenceBeat: {fileID: 6717019218879941843}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -2.1840277
+      outSlope: -2.1840277
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.036036037
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.2512346
+      outSlope: -0.2512346
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.13513511
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  amount: 1.2
+  _fixedAnimationTime: 1
 --- !u!1 &5852517224693273469
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,7 +593,7 @@ Transform:
   m_GameObject: {fileID: 5852517224693273469}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 5852517223324474736}
   m_RootOrder: 0
@@ -606,10 +657,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223bfd2d8818fe64d8a03501f1eeec44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refBeat: {fileID: 5852517223324474739}
-  beats: 0100010001000100
-  scaleModifier: 5
-  bopSpeed: 2
+  _sequencerPattern:
+    notes: 0000000000000000
+  _referenceBeat: {fileID: 0}
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  amount: 0
+  _fixedAnimationTime: 0
 --- !u!1 &5852517224988929120
 GameObject:
   m_ObjectHideFlags: 0

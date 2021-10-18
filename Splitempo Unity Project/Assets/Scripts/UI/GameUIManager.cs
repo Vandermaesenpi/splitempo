@@ -18,6 +18,7 @@ public class GameUIManager : MonoBehaviour
 
     private void SetEvents()
     {
+        print(_gameplayManager.onStabilityChanged);
         _gameplayManager.onStabilityChanged.AddListener(UpdateStabilityUI);
         _gameplayManager.onShotsChanged.AddListener(UpdateShotsUI);
     }

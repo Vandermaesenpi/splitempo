@@ -3,24 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : SingletonBase<AudioManager>
 {
-    #region singleton pattern
-    private static AudioManager _instance;
-    public static AudioManager I 
-    {
-        get {
-            if (!_instance) {
-                _instance = FindObjectOfType<AudioManager>();
-            }
-            return _instance;
-        }
-    }
 
-    private void Awake() {
-        _instance = this;
-    }
-    #endregion
+    [SerializeField] private float MusicVolumeMix;
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioSource _sfxSource;
 
@@ -43,20 +29,28 @@ public class AudioManager : MonoBehaviour
     }
     
 
-    private void MusicSourceLerpedChange(float pitch, float volume, int duration){
-        
-        if(musicSourceRoutine != null){
+    private void MusicSourceLerpedChange(float pitch, float volume, int duration)
+    {
+        StopCoroutine();
+        musicSourceRoutine = StartCoroutine(MusicSourceLerpedChangeRoutine(pitch, volume, duration));
+    }
+
+    private void StopCoroutine()
+    {
+        if (musicSourceRoutine != null)
+        {
             StopCoroutine(musicSourceRoutine);
         }
-        musicSourceRoutine = StartCoroutine(MusicSourceLerpedChangeRoutine(pitch, volume, duration));
     }
 
     IEnumerator MusicSourceLerpedChangeRoutine(float pitch, float volume, int duration){
         float t = 0;
         float waitTime = BeatManager.BeatToSeconds(duration);
+        float startPitch = _musicSource.pitch;
+        float startVolume = _musicSource.volume;
         while(t < waitTime){
-            _musicSource.pitch = Mathf.Lerp(_musicSource.pitch, pitch, t/waitTime);
-            _musicSource.volume = Mathf.Lerp(_musicSource.volume, volume, t/waitTime);
+            _musicSource.pitch = Mathf.Lerp(startPitch, pitch, t/waitTime);
+            _musicSource.volume = Mathf.Lerp(startVolume, volume * MusicVolumeMix, t/waitTime);
             t+= Time.deltaTime;
             yield return 0;
         }
@@ -68,11 +62,13 @@ public class AudioManager : MonoBehaviour
 
 
     public void SetMusicVolume(float targetValue){
-        _musicSource.volume = targetValue;
+        StopCoroutine();
+        _musicSource.volume = targetValue * MusicVolumeMix;
     }
 
     public void SetMusicPitch(float targetValue)
     {
+        StopCoroutine();
         _musicSource.pitch = targetValue;
     }
 
@@ -81,21 +77,28 @@ public class AudioManager : MonoBehaviour
         SetMusicVolume(1f);
         SetMusicPitch(1f);
         PlayMusicSFX(crash);
-        BeatManager.I.StartBeat();
         _musicSource.Stop();
         _musicSource.Play();
     }
 
+    public void StartWorldMusic(AudioClip music, float bpm)
+    {
+        if(music != null)
+            _musicSource.clip = music;
+        BeatManager.I.StartBeat(bpm);
+        StartMusic(null);
+    }
     public void StartNewMusic(AudioClip music, AudioClip crash)
     {
-        _musicSource.clip = music;
+        if(music != null)
+            _musicSource.clip = music;
+        BeatManager.I.StartBeat();
         StartMusic(crash);
     }
 
     public void StartNewMusic(AudioClip music)
     {
-        _musicSource.clip = music;
-        StartMusic(null);
+        StartNewMusic(music, null);
     }
 
     public void PlayMusicSFX(AudioClip sfx)
@@ -110,6 +113,7 @@ public class AudioManager : MonoBehaviour
     }
 
     public static void PlaySFX(AudioClip sfx, Vector3 point){
-        AudioSource.PlayClipAtPoint(sfx, point);
+        AudioSource.PlayClipAtPoint(sfx, point,10f);
     }
+
 }

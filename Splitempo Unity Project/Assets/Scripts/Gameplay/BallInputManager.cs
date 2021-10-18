@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class BallInputManager
+public class BallInputManager : MonoBehaviour
 {
     [SerializeField] private BallInputGraphics _ballInputGraphics;
     private Player _player;
@@ -14,11 +14,11 @@ public class BallInputManager
     
     private bool _interactable = false;
     private bool IsStretchedEnough => Vector3.Distance(_anchoredMousePos, _currentMousePos) > 0.1f;
-    private Vector3 GetMousePointerPosition => _camera.ScreenToWorldPoint(Input.mousePosition) - new Vector3(0, 0, _currentMousePos.z);
+    private Vector3 GetMousePointerPosition => _camera.ScreenToWorldPoint(Input.mousePosition) - _camera.ScreenToWorldPoint(Input.mousePosition).z * Vector3.forward;
 
     public void Initialize(Player p){
         _player = p;
-        _camera = GM.I.cam.gameCamera;
+        _camera = CameraManager.I.gameCamera;
         _interactable = true;
         _ballInputGraphics.Initialize();
     }

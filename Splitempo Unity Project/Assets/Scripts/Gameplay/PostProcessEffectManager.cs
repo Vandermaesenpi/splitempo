@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PostProcessEffectManager : MonoBehaviour {
-    [SerializeField] private List<PostProcessEffect> _effects;
+    private List<PostProcessEffect> _effects;
     private PostProcessEffect _currentEffect;
 
     Coroutine _volumeStatusRoutine;
+
+    private void Awake() {
+        _effects = new List<PostProcessEffect>(GetComponentsInChildren<PostProcessEffect>());
+    }
 
     public void SetVolumeStatus(PostProcessEffectType _type){
         if(_volumeStatusRoutine != null){
@@ -15,6 +19,7 @@ public class PostProcessEffectManager : MonoBehaviour {
         }
         StopAllEffects();
         if(_type != PostProcessEffectType.None){
+            _currentEffect = GetTargetedEffect(_type);
             _volumeStatusRoutine = StartCoroutine(StatusVolumeRoutine());
         }
     }
