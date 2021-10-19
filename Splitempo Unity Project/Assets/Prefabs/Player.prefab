@@ -657,6 +657,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 5852517223324474737, guid: a8b4878be9921444c9bfa7838b19ad0e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5852517223324474739, guid: a8b4878be9921444c9bfa7838b19ad0e,
         type: 3}
       propertyPath: pole

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LevelEndEffect Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 5680686507640407676}
---- !u!114 &5680686507640407676
+  - {fileID: 732784333892136636}
+--- !u!114 &732784333892136636
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,34 +67,34 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 0
-    value: -100
+    value: 0
   tint:
     overrideState: 0
-    value: -100
+    value: 0
   colorFilter:
     overrideState: 1
-    value: {r: 0, g: 0.8739414, b: 1, a: 1}
+    value: {r: 0, g: 0.8415315, b: 1, a: 1}
   hueShift:
     overrideState: 0
-    value: 54
+    value: 0
   saturation:
-    overrideState: 1
-    value: 100
+    overrideState: 0
+    value: 0
   brightness:
     overrideState: 0
     value: 0
   postExposure:
     overrideState: 0
-    value: 3
+    value: 0
   contrast:
-    overrideState: 1
-    value: 100
+    overrideState: 0
+    value: 0
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
   mixerRedOutGreenIn:
     overrideState: 0
-    value: 200
+    value: 0
   mixerRedOutBlueIn:
     overrideState: 0
     value: 0

@@ -21,26 +21,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.8417524
-      value: 0
-      inSlope: 0.0041669835
-      outSlope: 0.0041669835
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.10835318
-      outWeight: 0.33333334
-    - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -48,8 +39,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  amount: 45
-  _fixedAnimationTime: 0
+  amount: 10
+  _fixedAnimationTime: 2
 --- !u!1001 &1902238387239928660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -266,7 +257,7 @@ PrefabInstance:
     - target: {fileID: 1850781209153290809, guid: 4a44ca26b38b8634dad1890d394c0e58,
         type: 3}
       propertyPath: maxStability
-      value: 16
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1850781209153290809, guid: 4a44ca26b38b8634dad1890d394c0e58,
         type: 3}

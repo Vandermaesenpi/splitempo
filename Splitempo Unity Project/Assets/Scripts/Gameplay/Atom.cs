@@ -32,7 +32,6 @@ public class Atom : MonoBehaviour,IInteractable
 
     public void PreSplit(Vector3 d, PlayerBall ball){
         if(colored && ball.blue != blue){return;}
-        _atomAudio.PlaySFXPreSplit();
         _direction = d.normalized;
         waitForBeat = true;
         GM.I.gp.Split(this, isCollectable ? 0 : splitParts.Count);

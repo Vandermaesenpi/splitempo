@@ -60,7 +60,7 @@ public class TransitionScreen : MonoBehaviour
         StartCoroutine(UIFadeTo(Color.green));
 
         scoreText.text = "Shots : " + GM.I.gp.shotsTaken;
-        yield return StartCoroutine(BeatManager.WaitForBeatDuration(4));
+        yield return StartCoroutine(BeatManager.WaitForBeatDuration(3));
         highscoreText.text = "Pierre's highscore : " + GM.I.gp.CurrentLevel.devHighscore;
         yield return StartCoroutine(BeatManager.WaitForBeatDuration(4));
         scoreText.text = "";

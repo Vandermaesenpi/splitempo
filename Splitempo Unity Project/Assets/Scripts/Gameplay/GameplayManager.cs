@@ -49,9 +49,11 @@ public class GameplayManager : MonoBehaviour
 
 
     public void Hurt(){
-        if(dead){return;}
+        if(dead || won){return;}
         _stabilityManager.DecreaseStability(10);
-        CameraManager.I.StartPostProcessingEffect(PostProcessEffectType.Hurt);
+        if(!dead){
+            CameraManager.I.StartPostProcessingEffect(PostProcessEffectType.Hurt);
+        }
     }
 
 
@@ -71,7 +73,7 @@ public class GameplayManager : MonoBehaviour
     public void LooseLevel()
     {
         if(won){return;}
-
+        dead = true;
         if(endLevelRoutine != null){
             StopCoroutine(endLevelRoutine);
         }

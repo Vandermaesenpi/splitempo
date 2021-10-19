@@ -8,6 +8,8 @@ class StabilityManager : BeatListener
     private float _maxStability;
     private GameplayManager _gameplayManager;
 
+    bool waitingForHurt;
+
     public void SetManager(GameplayManager gameplayManager)
     {
         _gameplayManager = gameplayManager;
@@ -31,6 +33,11 @@ class StabilityManager : BeatListener
         if(stability <= 0){
             _gameplayManager.LooseLevel();
         }
+    }
+
+    public void HurtStability(int amount){
+        HurtStability(amount);
+        waitingForHurt = true;
     }
 
 }

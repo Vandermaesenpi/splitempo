@@ -33,10 +33,10 @@ public class PlayerBall : MonoBehaviour
     }
 
     public void Bounce(){
-        AudioManager.PlaySFX(sfxBounce[BeatManager.I.CurrentBeatInBar], transform.position);
+        AudioManager.PlaySFX(sfxBounce[BeatManager.I.CurrentBeatInBar]);
     }
 
     public void Hurt(){
-        AudioManager.PlaySFX(sfxHurt, transform.position);
+        AudioManager.PlaySFX(sfxHurt);
     }
 }

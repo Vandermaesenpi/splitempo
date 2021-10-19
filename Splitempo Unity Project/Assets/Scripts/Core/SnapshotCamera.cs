@@ -60,7 +60,6 @@ public class SnapshotCamera : MonoBehaviour {
     /// <returns>A new SnapshotCamera, ready for use.</returns>
     public static SnapshotCamera MakeSnapshotCamera (int layer = 5, string name = "Snapshot Camera")
     {
-        print(layer);
         if (layer < 0 || layer > 31)
             throw new ArgumentOutOfRangeException("layer", "layer argument must specify a valid layer between 0 and 31");
 

@@ -217,9 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f8c31c8c1c8cb745b194145767a14ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sequencerPattern:
-    notes: 0000000000000000
-  _referenceBeat: {fileID: 0}
   isCollectable: 0
   splitParts: []
   rotSpeed: 300
@@ -254,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed20e243306e770439749c9ee0f0549c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxPreSplit: {fileID: 8300000, guid: fd145461553ff9c4eac7ab22bd06c828, type: 3}
+  sfxPreSplit: {fileID: 8300000, guid: f4696ef7a3e750d40898c2143a21510d, type: 3}
   sfxSplit: {fileID: 8300000, guid: 023e51faab1f163468931b48e6079069, type: 3}
   sfxDestroy: {fileID: 8300000, guid: 22964621cc9727441b5b0b26d00ceb41, type: 3}
 --- !u!1 &5484387361680026505

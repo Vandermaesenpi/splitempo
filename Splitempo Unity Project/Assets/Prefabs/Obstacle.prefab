@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6264873886895141854}
   - component: {fileID: 6264873886895141855}
   - component: {fileID: 6264873886895141851}
+  - component: {fileID: 8102366408940252911}
   m_Layer: 9
   m_Name: Obstacle
   m_TagString: Collider
@@ -104,5 +105,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a5f70c134d37c64ca70680b584c0812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8102366408940252911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6264873886895141852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f4fb8765b32d54aa09482a2cb56884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -6,5 +6,7 @@ public class Lava : MonoBehaviour, IInteractable
     {
         interactor.Reflect(hit.normal);
         GM.I.gp.Hurt();
+        if(!GM.I.gp.dead)
+            interactor._waitingForHurt = true;
     }
 }

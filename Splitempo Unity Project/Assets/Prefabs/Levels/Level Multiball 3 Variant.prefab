@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8266b6cd3ba87d1409a1fa8312f4eaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refBeat: {fileID: 0}
-  beats: 0100000000000000
-  animTime: 4
+  _sequencerPattern:
+    notes: 0000000000000000
+  _referenceBeat: {fileID: 0}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -83,7 +83,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  rotation: 45
+  amount: 0
+  _fixedAnimationTime: 0
 --- !u!1001 &2238352872043198873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -247,7 +248,7 @@ PrefabInstance:
     - target: {fileID: 6264873886895141848, guid: 41d41dc3f05e7fb45a4a22443d241174,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 11.057908
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6264873886895141848, guid: 41d41dc3f05e7fb45a4a22443d241174,
         type: 3}

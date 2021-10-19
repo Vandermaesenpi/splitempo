@@ -8,13 +8,11 @@ public class LevelSelectionUI : MenuUI
     [SerializeField] private List<LevelButton> levelButtons;
     [SerializeField] private GridLayoutGroup grid;
     
-    CanvasGroup _canvasGroup;
     private SnapshotCamera snapshotCamera;
 
     public override void Awake()
     {
         snapshotCamera = SnapshotCamera.MakeSnapshotCamera("SnapshotLayer");
-        _canvasGroup = GetComponent<CanvasGroup>();
         base.Awake();
     }
     public override void Initialize()

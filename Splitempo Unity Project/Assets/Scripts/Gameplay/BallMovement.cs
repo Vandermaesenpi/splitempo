@@ -14,7 +14,7 @@ public class BallMovement : BeatListener
     [SerializeField] private float _radius;
 
     [SerializeField] private bool _waitingForBounce;
-    [SerializeField] private bool _waitingForHurt;
+    public bool _waitingForHurt;
 
     private Transform _transform;
     private PlayerBall _playerBall;

@@ -22,7 +22,6 @@ public class SequenceDrawer : PropertyDrawer
         // Calculate rects
 
         var notes = property.FindPropertyRelative("notes");
-
         for (int i = 0; i < notes.arraySize; i++)
         {
             Rect noteRect = new Rect(position.x + 20 * i, position.y, 20, position.height);    
