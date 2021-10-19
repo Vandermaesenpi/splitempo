@@ -7,6 +7,7 @@ public class Atom : MonoBehaviour,IInteractable
 {
     public bool isCollectable;
     public List<GameObject> splitParts;
+    public GameObject splitVFX;
     public float rotSpeed;
     public float splitPitch;    
     bool waitForBeat = false;
@@ -34,6 +35,9 @@ public class Atom : MonoBehaviour,IInteractable
         if(colored && ball.blue != blue){return;}
         _direction = d.normalized;
         waitForBeat = true;
+        Disposable splitVFXObject = Instantiate(splitVFX, transform.position, Quaternion.identity).GetComponent<Disposable>();
+        splitVFXObject.transform.up = d;
+        splitVFXObject.Dispose();
         GM.I.gp.Split(this, isCollectable ? 0 : splitParts.Count);
         GetComponent<Collider>().enabled = false;
     }

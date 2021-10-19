@@ -7,6 +7,7 @@ public class BallMovement : BeatListener
     [SerializeField] private Vector4 _bounds;
     [SerializeField] private Vector3 _currentDirection;
     [SerializeField] private LayerMask _raycastMask;
+    [SerializeField] private GameObject bounceVFX;
 
     [SerializeField] private float _kickStrength;
     [SerializeField] private float _deceleration;
@@ -47,7 +48,7 @@ public class BallMovement : BeatListener
         _currentDirection = _currentDirection.normalized * Mathf.Clamp(_currentDirection.magnitude, 0, _maxVelocity);
         Vector3 movementVector = _currentDirection * Time.fixedDeltaTime;
         RaycastHit hit;
-        if (Physics.Raycast(_transform.position, movementVector, out hit, movementVector.magnitude, _raycastMask))
+        if (Physics.Raycast(_transform.position, movementVector, out hit, Mathf.Max(0.15f, movementVector.magnitude * 0.9f), _raycastMask))
         {
             _transform.position = hit.point - movementVector.normalized * _radius;
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
@@ -81,6 +82,8 @@ public class BallMovement : BeatListener
 
     internal void Reflect(Vector3 normal)
     {
+        Disposable bounceVFXObject = Instantiate(bounceVFX, transform.position, Quaternion.identity).GetComponent<Disposable>();
+        bounceVFXObject.Dispose();
         CameraManager.I.CamShake(_currentDirection);
         _currentDirection = Vector3.Reflect(_currentDirection, normal);
         _waitingForBounce = true;

@@ -358,6 +358,8 @@ MonoBehaviour:
   _raycastMask:
     serializedVersion: 2
     m_Bits: 512
+  bounceVFX: {fileID: 3168320202232916915, guid: bf9cb2c1cba4ea94a83b91f7c5fbc458,
+    type: 3}
   _kickStrength: 30
   _deceleration: 2
   _maxVelocity: 50

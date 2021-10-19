@@ -219,6 +219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCollectable: 0
   splitParts: []
+  splitVFX: {fileID: 3168320202232916915, guid: 2d6d9983dee064a40936e2e0db459018,
+    type: 3}
   rotSpeed: 300
   splitPitch: 0
   colored: 0
