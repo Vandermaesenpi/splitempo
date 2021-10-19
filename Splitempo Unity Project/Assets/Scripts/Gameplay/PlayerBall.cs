@@ -15,6 +15,9 @@ public class PlayerBall : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private List<AudioClip> sfxBounce;
     [SerializeField] private AudioClip sfxHurt;
+    [SerializeField] private GameObject ballDeathVFX;
+
+
 
     public void UpdateTargetRay(Vector3 _mousePos, Vector3 _currentMousePos)
     {
@@ -38,5 +41,14 @@ public class PlayerBall : MonoBehaviour
 
     public void Hurt(){
         AudioManager.PlaySFX(sfxHurt);
+    }
+
+    internal void DestroyVFX()
+    {
+        if(gameObject.activeInHierarchy){
+            Disposable VFXObject = Instantiate(ballDeathVFX, transform.position, Quaternion.identity).GetComponent<Disposable>();
+            VFXObject.Dispose();
+            gameObject.SetActive(false);
+        }
     }
 }

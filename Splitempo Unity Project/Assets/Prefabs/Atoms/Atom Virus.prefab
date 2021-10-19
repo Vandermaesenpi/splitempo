@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3697078438695195205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573990458830228301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328706c5d85452c4a90d86ceeb3a8a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sequencerPattern:
+    notes: 0100000000000000
+  _referenceBeat: {fileID: 0}
+  _offspring: {fileID: 5605984109568031561, guid: c55e14ec74cec3f4eb3056e4493936f0,
+    type: 3}
+  _sfxSpawn: {fileID: 8300000, guid: 407b688fdf1d1804a955c5a98e7ce49c, type: 3}
 --- !u!1 &1393809736403413333
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,21 +121,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   amount: 0
   _fixedAnimationTime: 0
---- !u!114 &3697078438695195205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 573990458830228301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 328706c5d85452c4a90d86ceeb3a8a4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _offspring: {fileID: 5605984109568031561, guid: c55e14ec74cec3f4eb3056e4493936f0,
-    type: 3}
-  _sfxSpawn: {fileID: 8300000, guid: 407b688fdf1d1804a955c5a98e7ce49c, type: 3}
 --- !u!1 &5279357439525198847
 GameObject:
   m_ObjectHideFlags: 0

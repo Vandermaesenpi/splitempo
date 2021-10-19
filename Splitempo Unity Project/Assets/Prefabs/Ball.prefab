@@ -338,6 +338,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 023e51faab1f163468931b48e6079069, type: 3}
   - {fileID: 8300000, guid: 425fff7d34a98564ea86543d4a96e227, type: 3}
   sfxHurt: {fileID: 8300000, guid: 1809a6511cf0d1841be3555ce3b87b97, type: 3}
+  ballDeathVFX: {fileID: 6347473493459604633, guid: 0d10e18f110069b459c0741191e610bd,
+    type: 3}
 --- !u!114 &6717019218879941843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,7 +362,7 @@ MonoBehaviour:
     m_Bits: 512
   bounceVFX: {fileID: 3168320202232916915, guid: bf9cb2c1cba4ea94a83b91f7c5fbc458,
     type: 3}
-  _kickStrength: 30
+  _kickStrength: 10
   _deceleration: 2
   _maxVelocity: 50
   _radius: 0.1

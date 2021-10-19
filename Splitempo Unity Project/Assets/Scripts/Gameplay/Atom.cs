@@ -88,7 +88,7 @@ public class Atom : MonoBehaviour,IInteractable
             newAtom.Spawn(dir);
             children.Add(newAtom);
         }
-        GM.I.gp.CurrentLevel.AddNewAtoms(children);
+        GM.I.gp.CurrentLevel.AddNewWaitingAtoms(children);
 
         Destroy(gameObject);
     }

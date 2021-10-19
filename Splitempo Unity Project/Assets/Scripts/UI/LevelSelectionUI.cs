@@ -21,7 +21,7 @@ public class LevelSelectionUI : MenuUI
         {
             
             GameObject levelPrefab = GM.I.gp.CurrentWorld.levels[i].gameObject;
-            Texture2D levelTexture = snapshotCamera.TakePrefabSnapshot(levelPrefab, Color.gray, new Vector3(0,0,10), Quaternion.identity, Vector3.one * 0.2f, (int)grid.cellSize.x, (int)grid.cellSize.y);
+            Texture2D levelTexture = snapshotCamera.TakePrefabSnapshot(levelPrefab, Color.gray, new Vector3(0,0.1f,10), Quaternion.identity, Vector3.one * 0.2f, (int)grid.cellSize.x, (int)grid.cellSize.y);
             levelButtons[i].Initialize(GM.I.gp.CurrentWorld, i, levelTexture);
         }
 

@@ -11,11 +11,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 266dc4e4485bc8f44bdb9c2009f7ca7e, type: 2}
+      objectReference: {fileID: 2100000, guid: fb0a65a9aee1f8443b9e9dde3e0bc6dd, type: 2}
     - target: {fileID: 5411282838875250651, guid: 25e2d26a25761644ab088f84176ec1ce,
         type: 3}
       propertyPath: m_Name
-      value: AtomParticle
+      value: AtomParticle Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5935303894475467649, guid: 25e2d26a25761644ab088f84176ec1ce,
         type: 3}

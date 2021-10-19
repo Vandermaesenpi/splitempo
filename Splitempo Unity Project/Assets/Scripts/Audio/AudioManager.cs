@@ -7,7 +7,7 @@ public class AudioManager : SingletonBase<AudioManager>
 {
 
     [SerializeField] private float MusicVolumeMix;
-    [SerializeField] private AudioSource _musicSource;
+    [SerializeField] public AudioSource _musicSource;
     [SerializeField] private AudioSource _sfxSource;
 
     Coroutine musicSourceRoutine;

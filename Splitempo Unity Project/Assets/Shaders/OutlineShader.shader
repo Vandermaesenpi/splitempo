@@ -43,7 +43,7 @@ ENDCG
 	SubShader {
 		//Tags {"Queue" = "Geometry+100" }
 CGPROGRAM
-#pragma surface surf Lambert
+#pragma surface surf Unlit
  
 sampler2D _MainTex;
 fixed4 _Color;
@@ -57,12 +57,19 @@ void surf (Input IN, inout SurfaceOutput o) {
 	o.Albedo = c.rgb;
 	o.Alpha = c.a;
 }
+half4 LightingUnlit(SurfaceOutput s, half3 lightDir, half atten)
+
+{
+
+     return half4(s.Albedo, s.Alpha);
+
+}
 ENDCG
  
 		// note that a vertex shader is specified here but its using the one above
 		Pass {
 			Name "OUTLINE"
-			Tags { "LightMode" = "Always" }
+			Tags {}
 			Cull Front
 			ZWrite On
 			ColorMask RGB
@@ -79,7 +86,7 @@ ENDCG
  
 	SubShader {
 CGPROGRAM
-#pragma surface surf Lambert
+#pragma surface surf Unlit
  
 sampler2D _MainTex;
 fixed4 _Color;
@@ -92,6 +99,15 @@ void surf (Input IN, inout SurfaceOutput o) {
 	fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 	o.Albedo = c.rgb;
 	o.Alpha = c.a;
+	
+}
+
+half4 LightingUnlit(SurfaceOutput s, half3 lightDir, half atten)
+
+{
+
+     return half4(s.Albedo, s.Alpha);
+
 }
 ENDCG
  

@@ -84,6 +84,7 @@ public class GameplayManager : MonoBehaviour
     {
 
         CameraManager.I.StartPostProcessingEffect(PostProcessEffectType.Loose);
+        CurrentLevel.DestroyBalls();
         CurrentLevel.StopLevel();
         AudioManager.I.LerpMusicPitch(0f, 16);
         yield return StartCoroutine(BeatManager.WaitForBeatDuration(2));

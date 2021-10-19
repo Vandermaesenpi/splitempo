@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Atom Plus
+  m_Name: Neutron
   m_Shader: {fileID: 4800000, guid: 4cbe9aa1f9b47a147ae74e366e036dd1, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 2
@@ -74,6 +74,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.52156866, g: 0.3529412, b: 0.5411765, a: 1}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 1, g: 0.7490196, b: 0, a: 1}
-    - _OutlineColor: {r: 0.52156866, g: 0.3529412, b: 0.5411765, a: 1}
+    - _OutlineColor: {r: 0.9568628, g: 0.49803925, b: 0.21960786, a: 1}

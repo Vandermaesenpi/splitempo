@@ -17,7 +17,6 @@ public class BeatRotator : BeatAnimator
         
         _startEuler = new Vector3(0,0,transform.eulerAngles.z);
         _endEuler = new Vector3(0,0,_startEuler.z + amount);
-        print(_endEuler);
         base.SetupAnimation();
     }
 

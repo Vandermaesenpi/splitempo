@@ -36,7 +36,11 @@ public class LevelManager : MonoBehaviour
 
     public void AddNewAtoms(List<Atom> atoms){
         _atoms.AddRange(atoms);
+    }
+
+    public void AddNewWaitingAtoms(List<Atom> atoms){
         waitingChildrenCount -= atoms.Count;
+        AddNewAtoms(atoms);
     }
 
     public void Initialize(int i)
@@ -78,5 +82,10 @@ public class LevelManager : MonoBehaviour
             yield return 0;
         }
         bossLava.localScale = Vector3.one;
+    }
+
+    internal void DestroyBalls()
+    {
+        player.DestroyBalls();
     }
 }

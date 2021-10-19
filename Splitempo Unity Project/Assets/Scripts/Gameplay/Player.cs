@@ -40,4 +40,12 @@ public class Player : MonoBehaviour
             ball.KickBall(_inputVector);
         }    
     }
+
+    internal void DestroyBalls()
+    {
+        foreach (PlayerBall ball in playerBalls)
+        {
+            ball.DestroyVFX();
+        }   
+    }
 }
