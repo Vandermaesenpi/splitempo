@@ -7,7 +7,7 @@ public class ComboManager : BeatListener
     private List<Atom> currentCombo = new List<Atom>();
     [SerializeField] private List<AudioClip> comboEndSounds;
     [SerializeField] private List<AudioClip> comboBeatSounds;
-    public void AddToCombo(Atom atom){
+    public void AddToCombo(Atom atom, int childrenCount){
         currentCombo.Add(atom);
         AudioManager.PlaySFX(comboBeatSounds[BeatManager.I.CurrentBeatInBar]);
     }
@@ -22,13 +22,20 @@ public class ComboManager : BeatListener
 
     private void EndCombo()
     {
-        AudioManager.PlaySFX(comboEndSounds[Mathf.Min(currentCombo.Count/2, comboEndSounds.Count-1)]);
+        bool AtLeastOneAtomSplit = false;
         for (int i = currentCombo.Count - 1; i >= 0; i--)
         {
             Atom atom = currentCombo[i];
-            atom.Split();
-            currentCombo.RemoveAt(i);
+            if(atom.EndCombo(currentCombo)){
+                AtLeastOneAtomSplit = true;
+            }
         }
+
+        if(AtLeastOneAtomSplit){
+            AudioManager.PlaySFX(comboEndSounds[Mathf.Min(currentCombo.Count/2, comboEndSounds.Count-1)]);
+        }
+
+        GM.I.gp.CheckWinState();
         currentCombo.Clear();
     }
 }

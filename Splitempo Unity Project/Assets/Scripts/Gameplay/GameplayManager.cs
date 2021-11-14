@@ -109,9 +109,17 @@ public class GameplayManager : MonoBehaviour
         SpawnLevel(CurrentLevel.id);
     }
 
-    public void Split(Atom atom, int childrenCount) {
-        CurrentLevel.SplitAtom(atom, childrenCount);
-        comboManager.AddToCombo(atom);
+    public void PreSplit(Atom atom, int childrenCount) {
+        comboManager.AddToCombo(atom, childrenCount);
+    }
+
+    public void CheckWinState(){
+        StartCoroutine(CheckWinStateRoutine());
+    }
+
+    IEnumerator CheckWinStateRoutine(){
+        yield return 0;
+        yield return 0;
         if(CurrentLevel.NoMoreAtoms){
             WinLevel();
         }

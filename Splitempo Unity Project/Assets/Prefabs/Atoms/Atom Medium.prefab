@@ -1133,6 +1133,28 @@ MonoBehaviour:
     m_RotationOrder: 4
   amount: 0
   _fixedAnimationTime: 0
+--- !u!114 &-9073606474301661179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8159115560567056593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1228d33c84c9d41befecb84d7ee9e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitParts:
+  - {fileID: 5605984109568031561, guid: c55e14ec74cec3f4eb3056e4493936f0, type: 3}
+  - {fileID: 5605984109568031561, guid: c55e14ec74cec3f4eb3056e4493936f0, type: 3}
+  splitVFX: {fileID: 3168320202232916915, guid: 2d6d9983dee064a40936e2e0db459018,
+    type: 3}
+  rotSpeed: 10
+  splitPitch: 1
+  colored: 0
+  blue: 1
+  direction: {x: 0, y: 0, z: 0}
 --- !u!1001 &3856948798348580736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1292,6 +1314,12 @@ PrefabInstance:
 --- !u!4 &4304474378295012114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1025187782792101010, guid: 3444bad5dbbc7694d8f746890d15ac51,
+    type: 3}
+  m_PrefabInstance: {fileID: 3856948798348580736}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8159115560567056593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4953293427234701137, guid: 3444bad5dbbc7694d8f746890d15ac51,
     type: 3}
   m_PrefabInstance: {fileID: 3856948798348580736}
   m_PrefabAsset: {fileID: 0}

@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -23,8 +24,17 @@ public class LevelManager : MonoBehaviour
     public bool IsPlaying => _isPlaying;
 
     private int waitingChildrenCount;
-    internal bool NoMoreAtoms => _atoms.Count == 0 && waitingChildrenCount == 0;
+    internal bool NoMoreAtoms {
+        get{
+            Debug.Log("ATOM COUNTS = " + _atoms.Count);
+            return _atoms.Count == 0 && waitingChildrenCount == 0;
 
+        }
+    } 
+    public  void SplitAtom(Atom atom)
+    {
+        SplitAtom(atom, 0);
+    }
     public void SplitAtom(Atom parent, int children) {
         if(parent != null){
             _atoms.Remove(parent);
@@ -43,13 +53,14 @@ public class LevelManager : MonoBehaviour
         AddNewAtoms(atoms);
     }
 
+
     public void Initialize(int i)
     {
         waitingChildrenCount = 0;
         id = i;
         gameObject.SetActive(true);
         _atoms.Clear();
-        _atoms.AddRange(GetComponentsInChildren<Atom>());
+        _atoms.AddRange(GetComponentsInChildren<Atom>().ToList());
     }
 
     public void SpawnPlayer(){
