@@ -20,6 +20,9 @@ public class LevelManager : MonoBehaviour
 
     [HideInInspector]
     public List<Atom> _atoms;
+
+    [HideInInspector]
+    public List<ComboBouncer> _comboBouncers;
     private bool _isPlaying;
     public bool IsPlaying => _isPlaying;
 
@@ -29,11 +32,23 @@ public class LevelManager : MonoBehaviour
             return _atoms.Count == 0 && waitingChildrenCount == 0;
         }
     } 
-    
+
+    public void Initialize(int i)
+    {
+        waitingChildrenCount = 0;
+        id = i;
+        gameObject.SetActive(true);
+        _atoms.Clear();
+        _atoms.AddRange(GetComponentsInChildren<Atom>().ToList());
+        _comboBouncers.AddRange(GetComponentsInChildren<ComboBouncer>().ToList());
+
+    }
+
     public  void SplitAtom(Atom atom)
     {
         SplitAtom(atom, 0);
     }
+
     public void SplitAtom(Atom parent, int children) {
         if(parent != null){
             _atoms.Remove(parent);
@@ -47,19 +62,10 @@ public class LevelManager : MonoBehaviour
         _atoms.AddRange(atoms);
     }
 
+
     public void AddNewWaitingAtoms(List<Atom> atoms){
         waitingChildrenCount -= atoms.Count;
         AddNewAtoms(atoms);
-    }
-
-
-    public void Initialize(int i)
-    {
-        waitingChildrenCount = 0;
-        id = i;
-        gameObject.SetActive(true);
-        _atoms.Clear();
-        _atoms.AddRange(GetComponentsInChildren<Atom>().ToList());
     }
 
     public void SpawnPlayer(){
@@ -97,5 +103,12 @@ public class LevelManager : MonoBehaviour
     internal void DestroyBalls()
     {
         player.DestroyBalls();
+    }
+
+    public void ComboBounce(){
+        foreach (ComboBouncer comboBouncer in _comboBouncers)
+        {
+            comboBouncer.Bounce();
+        }
     }
 }

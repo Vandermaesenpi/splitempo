@@ -28,6 +28,7 @@ public class ComboManager : BeatListener
         if(currentCombo.Count > 0){
             EndCombo();
         }
+        _gameplayManager.CurrentLevel.ComboBounce(); 
         base.OnNotePlay();
     }
 
