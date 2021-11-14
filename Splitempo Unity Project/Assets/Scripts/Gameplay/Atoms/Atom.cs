@@ -18,9 +18,11 @@ public class Atom : MonoBehaviour,IInteractable
     [HideInInspector] public Vector3 direction;
     Vector3 _spawnDirection = Vector3.zero;
     Vector3 _randomRotation;
+    Rigidbody _rigidbody;
 
     private void Awake() {
         _atomAudio = GetComponent<AtomAudio>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     private void Start() {
@@ -49,7 +51,7 @@ public class Atom : MonoBehaviour,IInteractable
     private void FixedUpdate() {
         
         if(_spawnDirection != Vector3.zero){
-            transform.position += _spawnDirection * Time.fixedDeltaTime;
+            _rigidbody.MovePosition(transform.position + _spawnDirection * Time.fixedDeltaTime);
             _spawnDirection *= 0.95f;
             if(_spawnDirection.magnitude < 0.01f){
                 _spawnDirection = Vector3.zero;

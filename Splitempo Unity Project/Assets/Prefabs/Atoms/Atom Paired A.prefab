@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c36abfaa8ab81e14e966892b22246cc3, type: 2}
+  - {fileID: 2100000, guid: 266dc4e4485bc8f44bdb9c2009f7ca7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -162,7 +162,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c36abfaa8ab81e14e966892b22246cc3, type: 2}
+  - {fileID: 2100000, guid: 266dc4e4485bc8f44bdb9c2009f7ca7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -219,9 +219,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splitParts:
-  - {fileID: 5411282838875250651, guid: 25e2d26a25761644ab088f84176ec1ce, type: 3}
   - {fileID: 5672275189243322108, guid: ac8def909ccfe044c822fb46cfde59c8, type: 3}
-  - {fileID: 5411282838875250651, guid: 25e2d26a25761644ab088f84176ec1ce, type: 3}
+  - {fileID: 5672275189243322108, guid: ac8def909ccfe044c822fb46cfde59c8, type: 3}
+  - {fileID: 5672275189243322108, guid: ac8def909ccfe044c822fb46cfde59c8, type: 3}
   - {fileID: 5672275189243322108, guid: ac8def909ccfe044c822fb46cfde59c8, type: 3}
   splitVFX: {fileID: 3168320202232916915, guid: 2d6d9983dee064a40936e2e0db459018,
     type: 3}
@@ -231,6 +231,7 @@ MonoBehaviour:
   blue: 1
   direction: {x: 0, y: 0, z: 0}
   pair: {fileID: 0}
+  pairLine: {fileID: 0}
 --- !u!1 &6191538921036958283
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +503,7 @@ PrefabInstance:
     - target: {fileID: 4953293427234701137, guid: 3444bad5dbbc7694d8f746890d15ac51,
         type: 3}
       propertyPath: m_Name
-      value: Atom Paired
+      value: Atom Paired A
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3444bad5dbbc7694d8f746890d15ac51, type: 3}
