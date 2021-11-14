@@ -10,12 +10,13 @@ public class GameplayManager : MonoBehaviour
     private StabilityManager _stabilityManager;
     public UnityEventIntFloat onStabilityChanged;
     public UnityEventInt onShotsChanged;
+    public UnityEventInt onComboChanged;
 
     private GameUIManager _gameUIManager;
 
     public LevelManager CurrentLevel => GM.I.world.currentLevel;
     public World CurrentWorld => GM.I.world.currentWorld;
-    private ComboManager comboManager;
+    private ComboManager _comboManager;
 
     public bool won;
     public int shotsTaken;
@@ -40,7 +41,8 @@ public class GameplayManager : MonoBehaviour
         _stabilityManager.SetManager(this);
         _gameUIManager = GetComponent<GameUIManager>();
         _gameUIManager.SetManager(this);
-        comboManager = GetComponent<ComboManager>();
+        _comboManager = GetComponent<ComboManager>();
+        _comboManager.SetManager(this);
     }
 
     public void Bump(){
@@ -110,7 +112,7 @@ public class GameplayManager : MonoBehaviour
     }
 
     public void PreSplit(Atom atom, int childrenCount) {
-        comboManager.AddToCombo(atom, childrenCount);
+        _comboManager.AddToCombo(atom, childrenCount);
     }
 
     public void CheckWinState(){

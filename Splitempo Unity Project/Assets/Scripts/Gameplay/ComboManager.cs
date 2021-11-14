@@ -7,9 +7,20 @@ public class ComboManager : BeatListener
     private List<Atom> currentCombo = new List<Atom>();
     [SerializeField] private List<AudioClip> comboEndSounds;
     [SerializeField] private List<AudioClip> comboBeatSounds;
+    GameplayManager _gameplayManager;
+
+
+    public void SetManager(GameplayManager manager){
+        _gameplayManager = manager;
+    }
     public void AddToCombo(Atom atom, int childrenCount){
         currentCombo.Add(atom);
         AudioManager.PlaySFX(comboBeatSounds[BeatManager.I.CurrentBeatInBar]);
+    }
+
+    public override void OnBeat()
+    {
+        _gameplayManager.onComboChanged.Invoke(BeatManager.I.CurrentBeatInBar);
     }
 
     public override void OnNotePlay()

@@ -45,6 +45,7 @@ public class Atom : MonoBehaviour,IInteractable
         Disposable splitVFXObject = Instantiate(splitVFX, transform.position, Quaternion.identity).GetComponent<Disposable>();
         splitVFXObject.transform.up = d;
         splitVFXObject.Dispose();
+        GetComponent<Collider>().enabled = false;
     }
 
 

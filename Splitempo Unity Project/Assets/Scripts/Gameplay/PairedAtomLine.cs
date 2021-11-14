@@ -43,7 +43,7 @@ public class PairedAtomLine : BeatAnimator
 
     public void DestroyLine()
     {
-        Destroy(lineRenderer);
+        lineRenderer.enabled = false;
         this.enabled = false;
     }
 

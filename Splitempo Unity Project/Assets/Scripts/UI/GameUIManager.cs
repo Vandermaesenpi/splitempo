@@ -10,6 +10,8 @@ public class GameUIManager : MonoBehaviour
     public Image stabilityFiller, stabilityBkg;
     public Text stabilityText, shotsText;
 
+    public Image comboFillerLeft, comboFillerRight;
+
     public void SetManager(GameplayManager gameplayManager)
     {
         _gameplayManager = gameplayManager;
@@ -20,11 +22,13 @@ public class GameUIManager : MonoBehaviour
     {
         _gameplayManager.onStabilityChanged.AddListener(UpdateStabilityUI);
         _gameplayManager.onShotsChanged.AddListener(UpdateShotsUI);
+        _gameplayManager.onComboChanged.AddListener(UpdateComboUI);
     }
 
     private void OnDestroy() {
         _gameplayManager.onStabilityChanged.RemoveListener(UpdateStabilityUI);
-        _gameplayManager.onShotsChanged.RemoveListener(UpdateShotsUI); 
+        _gameplayManager.onShotsChanged.RemoveListener(UpdateShotsUI);
+        _gameplayManager.onComboChanged.RemoveListener(UpdateComboUI);
     }
 
     private void UpdateShotsUI(int shots)
@@ -39,6 +43,11 @@ public class GameUIManager : MonoBehaviour
         stabilityBkg.color = stabilityRatio > 0.25f ? Color.white : Color.red;
         stabilityFiller.fillAmount = stabilityRatio;
         stabilityText.text = stability.ToString();
+    }
+
+    private void UpdateComboUI(int combo){
+        comboFillerLeft.fillAmount = (float)combo/7f;
+        comboFillerRight.fillAmount = (float)combo/7f;
     }
 
 

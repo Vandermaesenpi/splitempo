@@ -7,11 +7,9 @@ public class FatherAtom : Atom
 {
     public override void PreSplit(Vector3 d, PlayerBall ball)
     {
-        base.PreSplit(d, ball);
         if(colored && ball.blue != blue){return;}
-        
+        base.PreSplit(d, ball);
         GM.I.gp.PreSplit(this, splitParts.Count);
-        GetComponent<Collider>().enabled = false;
     }
 
     public override IEnumerator SplitRoutine()

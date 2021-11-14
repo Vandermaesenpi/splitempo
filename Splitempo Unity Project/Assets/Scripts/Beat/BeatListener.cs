@@ -22,10 +22,13 @@ public class BeatListener : MonoBehaviour
     }
 
     private void CheckBeat(){
+        OnBeat();
         if(_sequencerPattern.HasNoteThisBeat){
             OnNotePlay();
         }
     }
+
+    public virtual void OnBeat(){}
 
     public virtual void OnNotePlay(){}
 

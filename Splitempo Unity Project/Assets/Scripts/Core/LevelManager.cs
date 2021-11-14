@@ -26,11 +26,10 @@ public class LevelManager : MonoBehaviour
     private int waitingChildrenCount;
     internal bool NoMoreAtoms {
         get{
-            Debug.Log("ATOM COUNTS = " + _atoms.Count);
             return _atoms.Count == 0 && waitingChildrenCount == 0;
-
         }
     } 
+    
     public  void SplitAtom(Atom atom)
     {
         SplitAtom(atom, 0);
