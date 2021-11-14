@@ -33,6 +33,12 @@ public class Atom : MonoBehaviour,IInteractable
         _spawnDirection = d * 10f;
     }
 
+    public Vector3 GetDirection(float startAngle, int i)
+    {
+        return Quaternion.Euler(0, 0, startAngle + (360f / (float)splitParts.Count) * (float)i) * direction;
+    }
+
+
     public virtual void PreSplit(Vector3 d, PlayerBall ball){
         direction = d.normalized;
         rotSpeed *= 3f;
@@ -78,7 +84,16 @@ public class Atom : MonoBehaviour,IInteractable
     }
 
     public virtual IEnumerator SplitRoutine(){
+        float startAngle = 180f / (float)splitParts.Count;
+        for (int i = 0; i < splitParts.Count; i++)
+        {
+            Vector3 dir = GetDirection(startAngle, i);
+            Disposable newAtom = Instantiate(splitParts[i], transform.position, Random.rotation).GetComponent<Disposable>();
+            newAtom.Dispose(dir);
+        }
         yield return 0;
+        GM.I.gp.CurrentLevel.SplitAtom(this);
+        Destroy(gameObject);
     }
 
     public virtual bool EndCombo(List<Atom> currentCombo) {

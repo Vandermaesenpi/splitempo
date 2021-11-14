@@ -21,7 +21,7 @@ public class FatherAtom : Atom
         for (int i = 0; i < splitParts.Count; i++)
         {
 
-            Vector3 dir = Quaternion.Euler(0, 0, startAngle + (360f / (float)splitParts.Count) * (float)i) * direction;
+            Vector3 dir = GetDirection(startAngle, i);
             Atom newAtom = Instantiate(splitParts[i], transform.position, Random.rotation).GetComponent<Atom>();
             newAtom.transform.parent = transform.parent;
             newAtom.Spawn(dir);
