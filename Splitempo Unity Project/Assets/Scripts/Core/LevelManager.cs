@@ -13,10 +13,9 @@ public class LevelManager : MonoBehaviour
     [HideInInspector]
     public int id;
     public int devHighscore;
-
+    public Objective objectiveOne, objectiveTwo;
     public Player player;
     public Transform bossLava;
-    public BeatRotator lavaRotator, bossRotator;
 
     [HideInInspector]
     public List<Atom> _atoms;
